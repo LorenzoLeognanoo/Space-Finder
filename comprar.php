@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space</title>
+  <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="script.js">
+</head>
+
+<body>
+ <nav class="navbar">
+    <div class="logo-container">
+      <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.php">Início</a></li>
+      <li><a href="alugar.php">Alugar</a></li>
+      <li><a href="comprar.php" class="active">Comprar</a></li>
+      <li><a href="sobre.php">Sobre Nós</a></li>
+      <li><a href="contato.php">Contato</a></li>
+    </ul>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <section class="card-principal">
+    <div>
+      <h1 class="titulo-principal">COMPRE SEU IMÓVEL</h1>
+       <p class="subtitulo-principal">Compre imóveis de forma fácil, rápida e segura com a SpaceFinder.</p>
+       
+          <div class="search-box">
+            <input type="text" placeholder="Digite uma localização ou tipo de imóvel...">
+            <button>Buscar</button>
+          </div>
+    </div>
+      
+  </section>
+  <section class="carrossel">
+    <div class="carrossel-container">
+      <div class="carrossel-cards" id="carrosselCards">
+        
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 1">
+          <div class="card-content">
+            <h3>Casa moderna</h3>
+            <p>Aluguel • 3 quartos</p>
+            <span>R$ R$ 500.000</span>
+          </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 2">
+          <div class="card-content">
+            <h3>Apartamento no centro</h3>
+            <p>Venda • 2 quartos</p>
+            <span>R$ 350.000</span>
+          </div>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 3">
+          <div class="card-content">
+            <h3>Casa com piscina</h3>
+            <p>Aluguel • 4 quartos</p>
+            <span>R$ 600.00</span>
+          </div>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 4">
+          <div class="card-content">
+            <h3>Studio mobiliado</h3>
+            <p>Venda • 1 quarto</p>
+            <span>R$ 200.000</span>
+          </div>
+        </div>
+    <!-- Card 5 -->
+    <div class="card">
+        <img src="imgs/home/foto-home.jpg" alt="Casa 4">
+        <div class="card-content">
+          <h3>Studio mobiliado</h3>
+          <p>Venda • 1 quarto</p>
+          <span>R$ 200.000</span>
+        </div>
+      </div>
+      </div>  
+    </div>
+  </section>
+  <section class="carrossel">
+    <div class="carrossel-container">
+      <div class="carrossel-cards" id="carrosselCards">
+        
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 1">
+          <div class="card-content">
+            <h3>Casa moderna</h3>
+            <p>Aluguel • 3 quartos</p>
+            <span>R$ R$ 500.000</span>
+          </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 2">
+          <div class="card-content">
+            <h3>Apartamento no centro</h3>
+            <p>Venda • 2 quartos</p>
+            <span>R$ 350.000</span>
+          </div>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 3">
+          <div class="card-content">
+            <h3>Casa com piscina</h3>
+            <p>Aluguel • 4 quartos</p>
+            <span>R$ 600.00</span>
+          </div>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 4">
+          <div class="card-content">
+            <h3>Studio mobiliado</h3>
+            <p>Venda • 1 quarto</p>
+            <span>R$ 200.000</span>
+          </div>
+        </div>
+    <!-- Card 5 -->
+    <div class="card">
+        <img src="imgs/home/foto-home.jpg" alt="Casa 4">
+        <div class="card-content">
+          <h3>Studio mobiliado</h3>
+          <p>Venda • 1 quarto</p>
+          <span>R$ 200.000</span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <section class="carrossel">
+    <div class="carrossel-container">
+      <div class="carrossel-cards" id="carrosselCards">
+        
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 1">
+          <div class="card-content">
+            <h3>Casa moderna</h3>
+            <p>Aluguel • 3 quartos</p>
+            <span>R$ R$ 500.000</span>
+          </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 2">
+          <div class="card-content">
+            <h3>Apartamento no centro</h3>
+            <p>Venda • 2 quartos</p>
+            <span>R$ 350.000</span>
+          </div>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 3">
+          <div class="card-content">
+            <h3>Casa com piscina</h3>
+            <p>Aluguel • 4 quartos</p>
+            <span>R$ 600.00</span>
+          </div>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="card">
+          <img src="imgs/home/foto-home.jpg" alt="Casa 4">
+          <div class="card-content">
+            <h3>Studio mobiliado</h3>
+            <p>Venda • 1 quarto</p>
+            <span>R$ 200.000</span>
+          </div>
+        </div>
+    <!-- Card 5 -->
+    <div class="card">
+        <img src="imgs/home/foto-home.jpg" alt="Casa 4">
+        <div class="card-content">
+          <h3>Studio mobiliado</h3>
+          <p>Venda • 1 quarto</p>
+          <span>R$ 200.000</span>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-social">
+        <p>Conheça nossas<br>redes sociais</p>
+        <div class="footer-social">
+    <div class="icons" style="display: flex; gap: 10px; margin-top: 10px;">
+      <a  href="https://instagram.com.br" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" style="width: 24px; filter: invert(1);" alt="Instagram"> </a>
+      <a  href="https://www.facebook.com/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" style="width: 24px; filter: invert(1);" alt="Facebook"></a> 
+      <a  href="https://x.com/home/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" style="width: 24px; filter: invert(1);" alt="X"></a>
+      <a  href="https://www.linkedin.com/feed/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" style="width: 24px; filter: invert(1);" alt="LinkedIn"></a>
+    </div>
+  </div>
+      </div>
+      <div class="footer-contact">
+        <p><strong>Entre em contato<br>com a Space Finder</strong></p>
+        <p> spacefinder@space.com.br</p>
+        <p>(16) 3333-0005</p>
+        <p> Av. Bandeirantes, 505 -<br>Centro, Araraquara - SP,<br>14801-120</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © Todos direitos reservados - SpaceFinder
+    </div>
+  </footer>
+
+  <style>
+      /* carrosel de imagens*/
+home-image {
+  flex: 1;
+  text-align: center;
+}
+
+.home-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.carrossel {
+  padding: 60px 5%;
+  background-color: #fff;
+}
+
+.carrossel h2 {
+  font-size: 1.8rem;
+  color: #1d4ed8;
+  margin-bottom: 20px;
+}
+
+.carrossel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.carrossel-cards {
+  display: flex;
+  gap: 60px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.card {
+  min-width: 250px;
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.card-content p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.card-content span {
+  font-weight: bold;
+  color: #1d4ed8;
+}
+
+.carrossel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.carrossel-btn.left {
+  left: 0;
+}
+
+.carrossel-btn.right {
+  right: 0;
+}
+
+  </style>
+</body>
+</html>
