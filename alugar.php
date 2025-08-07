@@ -94,6 +94,7 @@ $result = $conn->query($sql);
       <div class="carrossel-cards" id="carrosselCards">
         
         <!-- Card 1 -->
+           <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel0.jpg" alt="Casa 1">
           <div class="card-content">
@@ -102,8 +103,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 2 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel1.jpg" alt="Casa 2">
           <div class="card-content">
@@ -112,8 +115,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 3 -->
+           <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel2.jpg" alt="Casa 3">
           <div class="card-content">
@@ -122,8 +127,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 4 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel3.jpg" alt="Casa 4">
           <div class="card-content">
@@ -132,7 +139,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
+
     <!-- Card 5 -->
+      <a class="linkinfo" href="infos/index.php">
     <div class="card">
         <img src="imgs/aluguel/aluguel4.jpg" alt="Casa 4">
         <div class="card-content">
@@ -141,14 +151,17 @@ $result = $conn->query($sql);
           <span>R$ 2.300 / mês</span>
         </div>
       </div>
+      </a>
       </div>
     </div>
+    
   </section>
   <section class="carrossel">
     <div class="carrossel-container">
       <div class="carrossel-cards" id="carrosselCards">
         
         <!-- Card 1 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel5.jpg" alt="Casa 1">
           <div class="card-content">
@@ -157,8 +170,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 2 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel6.jpg" alt="Casa 2">
           <div class="card-content">
@@ -167,8 +182,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 3 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel7.jpg" alt="Casa 3">
           <div class="card-content">
@@ -177,8 +194,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 4 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel8.jpg" alt="Casa 4">
           <div class="card-content">
@@ -187,7 +206,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
+
     <!-- Card 5 -->
+      <a class="linkinfo" href="infos/index.php">
     <div class="card">
         <img src="imgs/aluguel/aluguel9.jpg" alt="Casa 4">
         <div class="card-content">
@@ -196,6 +218,7 @@ $result = $conn->query($sql);
           <span>R$ 2.300 / mês</span>
         </div>
       </div>
+      </a>
       </div>
     </div>
   </section>
@@ -204,6 +227,7 @@ $result = $conn->query($sql);
       <div class="carrossel-cards" id="carrosselCards">
         
         <!-- Card 1 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel10.jpg" alt="Casa 1">
           <div class="card-content">
@@ -212,8 +236,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 2 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel11.jpg" alt="Casa 2">
           <div class="card-content">
@@ -222,8 +248,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 3 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel12.jpg" alt="Casa 3">
           <div class="card-content">
@@ -232,8 +260,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
   
         <!-- Card 4 -->
+          <a class="linkinfo" href="infos/index.php">
         <div class="card">
           <img src="imgs/aluguel/aluguel13.jpg" alt="Casa 4">
           <div class="card-content">
@@ -242,7 +272,10 @@ $result = $conn->query($sql);
             <span>R$ 2.300 / mês</span>
           </div>
         </div>
+        </a>
+
     <!-- Card 5 -->
+    <a class="linkinfo" href="infos/index.php">
     <div class="card">
         <img src="imgs/aluguel/aluguel14.jpg" alt="Casa 4">
         <div class="card-content">
@@ -251,6 +284,7 @@ $result = $conn->query($sql);
           <span>R$ 2.300 / mês</span>
         </div>
       </div>
+      </a>
       
       </div>
     </div>
@@ -284,6 +318,12 @@ $result = $conn->query($sql);
 </body>
 </html>
 <style>
+  
+.linkinfo {
+  text-decoration: none
+}
+
+
     /* carrosel de imagens*/
 home-image {
   flex: 1;
