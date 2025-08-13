@@ -65,7 +65,9 @@ $result = $conn->query($sql);
   </section>
 
   <section class="carrossel">
-    <h2><?php echo $busca ? "Resultados para \"$busca\"" : "Imóveis em destaque"; ?></h2>
+    <h2>
+      <?php echo $busca ? "Resultados para \"$busca\"" : "Imóveis em destaque"; ?></h2>
+
     <div class="carrossel-container">
       <button class="carrossel-btn left">&#10094;</button>
   
@@ -134,6 +136,7 @@ $result = $conn->query($sql);
 </html>
 
 <style>
+  
   home-image {
     flex: 1;
     text-align: center;
