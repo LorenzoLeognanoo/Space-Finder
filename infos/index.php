@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar">
        <div class="logo-container">
-         <a href="index.php"><img src="../imgs/logosf.png" alt="Logo" class="logo" /></a>
+         <a href="../index.php"><img src="../imgs/logosf.png" alt="Logo" class="logo" /></a>
        </div>
    
        <ul class="nav-links">
@@ -104,133 +104,6 @@
 
   </div>
 
-  <style>
-     
-  .navbar {
-    margin-top: 10px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    padding: 0 20px;
-
-  }
-  
-  
-  /* logo */
-  .logo {  
-    height: 70px;
-    width: auto;
-    object-fit: contain;
-  }
-  
-  /* links navbar */
-  .nav-links {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 25px;
-    list-style: none;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: black;
-    font-size: 1rem;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #1d4ed8;
-  }
-  
-  .nav-links a.active {
-    border-bottom: 2px solid #1d4ed8;
-    color: #153eb5;
-  }
-  
-  /* menu hamburguer para mobile */
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;        
-    gap: 5px;
-  }
-  
-  .menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: black;
-    transition: 0.3s ease;
-  }
-    
-  /* responsividade site */
-  @media (max-width: 885px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    transform: none;
-    display: none;
-    flex-direction: column;
-    background-color: white;
-    text-align: center;
-    padding: 15px 0;
-  }
-  
-  .nav-links.show {
-    display: flex;
-  }
-  }
-  
-  @media (max-width: 885px) {
-  .menu-toggle {
-    display: flex;
-  }
-  }
-  
-  
-    /* footer pagina*/
-      footer {
-    background-color: #163D86;
-    color: white;
-    font-family: Arial, sans-serif;
-    padding: 20px 40px;
-  }
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .footer-social p,
-  .footer-contact p {
-    margin: 8px 0;
-  }
-  
-  .footer-social .icons img {
-    width: 24px;
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-  
-  .footer-contact .icon {
-    width: 18px;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  
-  .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-  }
-  </style>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
