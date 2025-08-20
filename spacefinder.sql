@@ -27,8 +27,8 @@ CREATE TABLE `imoveis` (
 
 
 INSERT INTO `imoveis` (`id_casa`, `bairro`, `rua`, `area`, `foto`, `num_comodos`, `tipo_de_imovel`, `valor`, `finalidade`) VALUES
-(1, 'Centro', 'Rua das Palmeiras', 120.50, 'imgs/home/foto-home.jpg', 5, 'Casa com piscina', 350000.00, 'comprar'),
-(2, 'Jardim Brasil', 'Av. Brasil', 75.00, 'imgs/home/foto-home.jpg', 3, 'Apartamento', 220000.00, 'comprar'),
+(1, 'Portal das Tipuamas', ' Av. Luiz Dosualdo', 186, 'imgs/home/casa 1/fachada.jpg', 8, 'Casa em condomínio', 1590000.00, 'comprar'),
+(2, 'Jardim Bandeirantes', 'Av. Alberto Benassi', 75.00, 'imgs/home/casa 2/entrada.jpg', 7, 'Apartamento', 220000.00, 'comprar'),
 (3, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/foto-home.jpg', 4, 'Casa', 280000.00, 'comprar'),
 (4, 'Centro', 'Rua João Pessoa', 60.00, 'imgs/home/foto-home.jpg', 2, 'Studio mobiliado', 180000.00, 'comprar'),
 (5, 'Vila Xavier', 'Rua São Bento', 150.00, 'imgs/home/foto-home.jpg', 6, 'Sobrado', 400000.00, 'comprar'),
@@ -50,3 +50,5 @@ INSERT INTO `imoveis` (`bairro`, `rua`, `area`, `foto`, `num_comodos`, `tipo_de_
 
 ALTER TABLE `imoveis`
   ADD PRIMARY KEY (`id_casa`);
+  
+  

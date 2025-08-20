@@ -1,28 +1,28 @@
 <?php
-// Conexão com o banco de dados
+//conexão com o banco de dados
 $conn = new mysqli("localhost", "root", "", "spacefinder");
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
   
-// Recebe os parâmetros de busca e filtros
+//recebe os parâmetros de busca e filtros
 $busca = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 $bairro = isset($_GET['bairro']) ? $conn->real_escape_string($_GET['bairro']) : '';
 $tipo = isset($_GET['tipo_de_imovel']) ? $conn->real_escape_string($_GET['tipo']) : '';
 $comodos = isset($_GET['num_comodos']) ? intval($_GET['num_comodos']) : '';
 $faixa_preco = isset($_GET['faixa_preco']) ? $_GET['faixa_preco'] : '';
 
-// Monta a consulta SQL - APENAS IMÓVEIS PARA ALUGAR
-$sql = "SELECT * FROM imoveis WHERE 1=1";
+//monta a consulta SQL - APENAS IMÓVEIS PARA ALUGAR
+$sql = "SELECT * FROM imoveis_alugar WHERE 1=1";
 
-// Aplica busca geral (igual ao index.php)
+//aplica busca geral 
 if ($busca) {
     $sql .= " AND (bairro LIKE '%$busca%' 
              OR rua LIKE '%$busca%' 
              OR tipo_de_imovel LIKE '%$busca%')";
 }
 
-// Aplica filtros específicos
+//aplica filtros específicos
 if ($bairro) {
     $sql .= " AND bairro LIKE '%$bairro%'";
 }
@@ -44,15 +44,15 @@ if ($faixa_preco) {
     }
 }
 
-// limita para 20 resultados
+//limita para 20 resultados
 $sql .= " LIMIT 20";
 
 $result = $conn->query($sql);
 
-// busca dados para os filtros 
-$bairros_result = $conn->query("SELECT DISTINCT bairro FROM imoveis WHERE bairro != '' ORDER BY bairro");
-$tipos_result = $conn->query("SELECT DISTINCT tipo_de_imovel FROM imoveis WHERE tipo_de_imovel != '' ORDER BY tipo_de_imovel");
-$comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE num_comodos > 0 ORDER BY num_comodos");
+//busca dados para os filtros 
+$bairros_result = $conn->query("SELECT DISTINCT bairro FROM imoveis_alugar WHERE bairro != '' ORDER BY bairro");
+$tipos_result = $conn->query("SELECT DISTINCT tipo_de_imovel FROM imoveis_alugar WHERE tipo_de_imovel != '' ORDER BY tipo_de_imovel");
+$comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar WHERE num_comodos > 0 ORDER BY num_comodos");
 ?>
 
 <!DOCTYPE html>
@@ -87,13 +87,13 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
     </div>
   </nav>
 
-  <!-- Seção Principal com Busca -->
+  <!--seção principal site -->
   <section class="card-principal">
     <div>
       <h1 class="titulo-principal">ALUGUE SEU IMÓVEL</h1>
       <p class="subtitulo-principal">Alugue imóveis de forma fácil, rápida e segura com a SpaceFinder.</p>
 
-      <!-- Barra de busca principal (igual ao index.php) -->
+      <!--barra de pesquisa principal site-->
       <form class="search-box" method="GET" action="alugar.php">
         <input type="text" name="q" placeholder="Digite uma localização ou tipo de imóvel..." value="<?php echo htmlspecialchars($busca); ?>" />
         <button type="submit">Buscar</button>
@@ -101,16 +101,17 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
     </div>
   </section>
 
-  <!-- Seção de Filtros -->
+  <!--seção filtros-->
   <section class="secao-filtros">
     <div class="container">
       <div class="cartao-filtros">
         <form class="formulario-filtros" method="GET" action="alugar.php">
-          <!-- Mantém a busca principal -->
+
+          <!--mantém a busca principal -->
           <input type="hidden" name="q" value="<?php echo htmlspecialchars($busca); ?>">
-          
           <div class="grade-filtros">
-            <!-- Filtro Bairro -->
+
+            <!--filtro bairro-->
             <div class="grupo-filtro">
               <label for="bairro">
                 <i class="fas fa-map-marker-alt"></i>
@@ -129,7 +130,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
               </select>
             </div>
 
-            <!-- Filtro Tipo de Imóvel -->
+            <!--filtro tipo de imóvel-->
             <div class="grupo-filtro">
               <label for="tipo">
                 <i class="fas fa-home"></i>
@@ -148,7 +149,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
               </select>
             </div>
 
-            <!-- Filtro Cômodos -->
+            <!--filtro cômodos-->
             <div class="grupo-filtro">
               <label for="num_comodos">
                 <i class="fas fa-bed"></i>
@@ -167,7 +168,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
               </select>
             </div>
 
-            <!-- Filtro Faixa de Preço -->
+            <!--filtro faixa de preço-->
             <div class="grupo-filtro">
               <label for="faixa_preco">
                 <i class="fas fa-dollar-sign"></i>
@@ -184,7 +185,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
               </select>
             </div>
 
-            <!-- Botões -->
+            <!--botões filtro-->
             <div class="acoes-filtros">
               <button type="submit" class="botao-filtrar">
                 <i class="fas fa-search"></i>
@@ -201,7 +202,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
     </div>
   </section>
 
-  <!-- Resultados -->
+  <!--resultados busca-->
   <section class="secao-resultados">
     <div class="container">
       <h2>
@@ -214,6 +215,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
         ?>
       </h2>
       
+        <!--cards alugar-->
       <?php if ($result && $result->num_rows > 0): ?>
         <div class="grade-resultados">
           <?php while($row = $result->fetch_assoc()): ?>
@@ -230,7 +232,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
                 </div>
                 
                 <h3 class="titulo-cartao">
-                  <?php echo htmlspecialchars($row['tipo_de_imovel']); ?> em <?php echo htmlspecialchars($row['bairro']); ?>
+                  <?php echo htmlspecialchars($row['titulo_casa']); ?>
                 </h3>
                 
                 <div class="localizacao-cartao">
@@ -270,7 +272,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
     </div>
   </section>
 
-  <!-- Footer -->
+  <!--footer-->
   <footer>
     <div class="footer-container">
       <div class="footer-social">
@@ -295,9 +297,8 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis WHERE n
   </footer>
 
   <script>
-
     function verDetalhes(id) {
-        window.location.href = `infos/index.php`;
+        window.location.href = `imovel-detalhes.php?id=${id}&tipo=alugar`;
     }
   </script>
 

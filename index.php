@@ -7,14 +7,19 @@ if ($conn->connect_error) {
 $busca = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 
 if ($busca) {
-    // busca nos campos bairro, rua e tipo_de_imovel
-    $sql = "SELECT * FROM imoveis 
+    //busca nos campos bairro, rua e tipo_de_imovel
+    $sql = "SELECT * FROM imoveis_alugar
+            WHERE bairro LIKE '%$busca%' 
+            OR rua LIKE '%$busca%' 
+            OR tipo_de_imovel LIKE '%$busca%'";
+
+               $sql = "SELECT * FROM imoveis_comprar
             WHERE bairro LIKE '%$busca%' 
             OR rua LIKE '%$busca%' 
             OR tipo_de_imovel LIKE '%$busca%'";
 } else {
-    // imóveis em destaque padrão 
-    $sql = "SELECT * FROM imoveis LIMIT 10";
+    //imóveis em destaque padrão 
+    $sql = "SELECT * FROM imoveis_alugar LIMIT 10";
 }
 
 $result = $conn->query($sql);
@@ -96,7 +101,7 @@ $result = $conn->query($sql);
     
   </section>
 
-  <!--  -->
+  <!--footer-->
 
   <footer>
     <div class="footer-container">
