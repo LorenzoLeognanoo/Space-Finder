@@ -176,8 +176,9 @@ $result = $conn->query($sql);
     padding-bottom: 10px;
 }
 
-.card {
-    min-width: 250px;
+.card { 
+    width: 320px;
+    max-width: 320px;
     background: #f9fafb;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
