@@ -30,11 +30,11 @@ if (!$result || $result->num_rows == 0) {
 }
 $imovel = $result->fetch_assoc();
 
-// Array de imagens baseado no ID do imóvel e tipo
+//array de imagens baseado no ID do imóvel e tipo
 $tipo_pasta = strtolower($imovel['tipo_de_imovel']) == 'apartamento' ? 'apartamento' : 'casa';
 $pasta_imovel = "imgs/home/" . $tipo_pasta . " " . $id_imovel . "/";
 
-clearstatcache(); // Limpa cache do PHP
+clearstatcache(); //limpa cache do PHP
 
 $imagens_disponiveis = [
     "varanda.jpg",
@@ -71,7 +71,7 @@ $imagens_disponiveis = [
 
 $imagens_imovel = [];
 
-// verifica se a pasta existe 
+//verifica se a pasta existe 
 if (is_dir($pasta_imovel)) {
     foreach($imagens_disponiveis as $imagem) {
         $caminho_completo = realpath($pasta_imovel . $imagem);
@@ -82,25 +82,18 @@ if (is_dir($pasta_imovel)) {
     }
 }
 
-// Se não encontrar imagens OU a pasta não existir, usa foto padrão
+//se não encontrar imagens OU a pasta não existir, usa foto padrão
 if (empty($imagens_imovel)) {
-    // Verifica se a foto padrão existe
+
+    //verifica se a foto padrão existe
     if (file_exists($imovel['foto'])) {
         $imagens_imovel = [$imovel['foto'] . "?v=" . filemtime($imovel['foto'])];
     } else {
-        // Se nem a foto padrão existe, usa placeholder
+
+        //se a foto padrão nao existe, usa placeholder
         $imagens_imovel = ["imgs/placeholder.jpg"];
     }
 }
-
-// DEBUG TEMPORÁRIO - remova depois
-echo "<!-- DEBUG: Pasta: " . $pasta_imovel . " | Existe: " . (is_dir($pasta_imovel) ? 'SIM' : 'NÃO') . " | Total imagens: " . count($imagens_imovel) . " -->";
-?>
-
-<!-- E adicione esta meta tag no <head> do HTML para evitar cache: -->
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0"><?php
 ?>
 
 <!DOCTYPE html>
@@ -353,7 +346,7 @@ echo "<!-- DEBUG: Pasta: " . $pasta_imovel . " | Existe: " . (is_dir($pasta_imov
             padding: 20px;
         }
 
-        /* Carrossel */
+        /* carrossel */
         .carousel-box {
             flex: 1 1 60%;
             min-width: 300px;
@@ -366,7 +359,7 @@ echo "<!-- DEBUG: Pasta: " . $pasta_imovel . " | Existe: " . (is_dir($pasta_imov
             border-radius: 10px;
         }
 
-        /* Informações principais */
+        /* informações principais */
         .main-info {
             flex: 1 1 60%;
             background: white;
@@ -413,7 +406,7 @@ echo "<!-- DEBUG: Pasta: " . $pasta_imovel . " | Existe: " . (is_dir($pasta_imov
             color: #495057;
         }
 
-        /* Formulário lateral */
+        /* formulário lateral */
         .form-box {
             flex: 1 1 30%;
             background: white;
@@ -454,7 +447,7 @@ echo "<!-- DEBUG: Pasta: " . $pasta_imovel . " | Existe: " . (is_dir($pasta_imov
         }
 
        
-        /* Footer */
+        /* footer */
         footer {
             background: #343a40;
             color: white;
