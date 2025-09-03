@@ -1,12 +1,12 @@
 	create database spacefinder; 
-	use spacefinder; 
-
+	use spacefinder;
+ 
 	CREATE TABLE `corretor` (
 	  `creci` int(14) PRIMARY KEY,
 	  `nome` varchar(100) DEFAULT NULL
 	);
-
-
+ 
+ 
 	CREATE TABLE `imoveis_alugar` (
 	  `id_casa` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	  `bairro` varchar(100) NOT NULL,
@@ -19,7 +19,7 @@
 	  `valor` decimal(15,2) DEFAULT NULL,
 	  `finalidade` enum('alugar','comprar') NOT NULL DEFAULT 'comprar'
 	);
-
+ 
 	CREATE TABLE `imoveis_comprar` (
 	  `id_casa` int(11) NOT NULL PRIMARY KEY,
 	  `bairro` varchar(100) NOT NULL,
@@ -32,39 +32,38 @@
 	  `valor` decimal(15,2) DEFAULT NULL,
 	  `finalidade` enum('alugar','comprar') NOT NULL DEFAULT 'comprar'
 	);
-
+ 
 	INSERT INTO `imoveis_alugar` (`id_casa`, `bairro`, `rua`, `area`, `foto`, `num_comodos`, `titulo_casa`, `tipo_de_imovel`,  `valor`, `finalidade` ) VALUES
 	(1, 'Portal das Tipuamas', ' Av. Luiz Dosualdo', 186, 'imgs/home/casa 1/fachada.jpg', 8, 'Casa em condomínio de alto padrão','Casa', 4200.00, 'alugar'),
-	(2, 'Jardim Bandeirantes', 'Av. Alberto Benassi', 75.00, 'imgs/home/casa 2/varanda.jpg', 7, 'Casa','Casa', 1200.00, 'alugar'),
-	(3, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/casa 3/piscina.jpg', 5, 'Casa a venda no São José','Casa', 2800.00, 'alugar'),
-	(4, 'São José', 'Ru', 60.00, 'imgs/home/casa 4/entrada.jpg', 6, 'Casa no Jardim Santa Clara','Casa', 3200.00, 'alugar'),
+	(2, 'Jardim Bandeirantes', 'Av. Alberto Benassi', 75.00, 'imgs/home/casa 2/varanda.jpg', 7, 'Casa no Jardim Bandeirantes','Casa', 1200.00, 'alugar'),
+	(3, 'Parque Gramado', 'Rua Afonso Pena', 90.00, 'imgs/home/casa 3/piscina.jpg', 9, 'Casa Parque Gramado com Piscina','Casa', 2800.00, 'alugar'),
+	(4, 'Jardim Santa Clara', 'Av. Éllio Polez', 60.00, 'imgs/home/casa 4/entrada.jpg', 6, 'Casa no Jardim Santa Clara','Casa', 3200.00, 'alugar'),
 	(5, 'Vila Yamada', 'Rua São Bento', 150.00, 'imgs/home/casa 5/fachada 1.jpg', 6, 'Sobrado na Vila Yamada','Sobrado', 3000.00, 'alugar'),
-	(6, 'Santa Angelina', 'Rua João Goulart', 80.00, 'imgs/home/casa 6/fachada 2.jpg', 9, 'Casa com três dormitórios','Casa', 1500.00, 'alugar'),
-	(7, 'Jardim das Flores', 'av. 36', 250.50, 'imgs/home/casa 7/area 3.jpg', 8, 'Casa proxima ao Shooping Jaraguá','Casa', 2200.00, 'alugar'),
-	(8, 'Jardim Universal', 'Av. Brasil', 230.00, 'imgs/home/casa 8/fachada.jpg', 7, 'Casa recém reformada','Casa', 1400.00, 'alugar'),
-	(9, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/casa 9/quarto 3.jpg', 4, 'Apartamento Resedencial','Apartamento', 800.00, 'alugar'),
-	(10, 'Centro', 'Rua João Pessoa', 51.00, 'imgs/home/casa 2/entrada.jpg', 7, 'Apartamento Np Jardim Botânico ','Apartamento', 1000.00, 'alugar'),
-	(11, 'Jardim Paraíso', 'Rua São Bento', 150.00, 'imgs/home/casa 11/area.jpg', 5, 'Apartamento no Jardim Paraíso','Apartamento', 400000.00, 'alugar'),
-	(12, 'Santa Angelina', 'Rua João Goulart', 80.00, 'imgs/home/casa 12/area.jpg', 3, 'Apartamento', 'Apartamento', 2400.00, 'alugar'),
-	(13, 'Centro', 'Rua das Palmeiras', 120.50, 'imgs/home/casa 13/fachada.jpg', 5, 'Casa com piscina', 'Casa', 3500.00, 'alugar'),
-	(14, 'Jardim Brasil', 'Av. Brasil', 75.00, 'imgs/home/apartamento 14/predio.jpg', 3, 'Apartamento', 'Apartamento', 2200.00, 'alugar'),
-	(15, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/apartamento 15/corredor.jpg', 4, 'Casa', 'Casa',  2800.00, 'alugar');
-
-	INSERT INTO `imoveis_comprar` (`id_casa`, `bairro`, `rua`, `area`, `foto`, `num_comodos`, `tipo_de_imovel`, `titulo_casa`, `valor`, `finalidade` ) VALUES
-	(1, 'Portal das Tipuamas', ' Av. Luiz Dosualdo', 186, 'imgs/home/casa 1/fachada.jpg', 8, 'Casa', 'Casa de alto padrão em condominio',  1590000.00, 'comprar'),
-	(2, 'Jardim Bandeirantes', 'Av. Alberto Benassi', 75.00, 'imgs/home/casa 2/varanda.jpg', 7, 'Casa' , 'Casa', 220000.00, 'comprar'),
-	(3, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/casa 3/piscina.jpg', 4, 'Casa', 'Casa', 280000.00, 'comprar'),
-	(4, 'Centro', 'Rua João Pessoa', 60.00, 'imgs/home/casa 4/entrada.jpg', 2, 'Studio mobiliado', 'Studio mobiliado', 180000.00, 'comprar'),
-	(5, 'Vila Xavier', 'Rua São Bento', 150.00, 'imgs/home/casa 5/fachada 1.jpg', 6, 'Sobrado', 'Sobrado', 400000.00, 'comprar'),
-	(6, 'Santa Angelina', 'Rua João Goulart', 80.00, 'imgs/home/casa 6/fachada 2.jpg', 3, 'Apartamento', 'Apartamento', 240000.00, 'comprar'),
-	(7, 'Centro', 'Rua das Palmeiras', 120.50, 'imgs/home/casa 7/area 3.jpg', 5, 'Casa com piscina',  'Casa com piscina', 350000.00, 'comprar'),
-	(8, 'Jardim Brasil', 'Av. Brasil', 75.00, 'imgs/home/casa 8/fachada.jpg', 3, 'Apartamento',   'Apartamento', 220000.00, 'comprar'),
-	(9, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/casa 9/quarto 3.jpg', 4, 'Casa',  'Casa', 280000.00, 'comprar'),
-	(10, 'Centro', 'Rua João Pessoa', 60.00, 'imgs/home/casa 2/entrada.jpg', 2, 'Studio mobiliado',  'Studio mobiliado', 180000.00, 'comprar'),
-	(11, 'Vila Xavier', 'Rua São Bento', 150.00,'imgs/home/casa 11/area.jpg' , 6, 'Sobrado', 'Sobrado',  400000.00, 'comprar'),
-	(12, 'Santa Angelina', 'Rua João Goulart', 80.00, 'imgs/home/casa 12/area.jpg', 3, 'Apartamento', 'Apartamento', 240000.00, 'comprar'),
-	(13, 'Centro', 'Rua das Palmeiras', 120.50, 'imgs/home/casa 13/fachada.jpg', 5, 'Casa com piscina',  'Casa com piscina', 350000.00, 'comprar'),
-	(14, 'Jardim Brasil', 'Av. Brasil', 75.00, 'imgs/home/apartamento 14/predio.jpg', 3, 'Apartamento', 'Apartamento', 220000.00, 'comprar'),
-	(15, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/apartamento 15/corredor.jpg', 4, 'Casa', 'Casa', 280000.00, 'comprar');
-
+	(6, 'VIla Xavier', 'Rua Treze de Maio', 80.00, 'imgs/home/casa 6/fachada 2.jpg', 9, 'Casa na Vila Xavier','Casa', 1500.00, 'alugar'),
+	(7, 'Jardim das Flores', 'Av. João Soares e Arruda', 250.50, 'imgs/home/casa 7/area 3.jpg', 6, 'Casa proxima ao Shooping Jaraguá','Casa', 2200.00, 'alugar'),
+	(8, 'Jardim Universal', 'Av. Brasil', 230.00, 'imgs/home/casa 8/fachada.jpg', 7, 'Casa Recém Reformada Jardim Universal','Casa', 1400.00, 'alugar'),
+	(9, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/apartamento 9/quarto 3.jpg', 5, 'Apartamento Resedencial no Villa Nova', 'Apartamento', 800.00, 'alugar'),
+	(10, 'Centro', 'Rua João Pessoa', 51.00, 'imgs/home/casa 10/entrada.jpg', 7, 'Casa no Centro ','Casa', 1000.00, 'alugar'),
+	(11, 'Parque São Paulo', 'Rua Ennio Rodrigues Caraça', 150.00, 'imgs/home/casa 11/area.jpg', 5, 'Casa no Parque São Paulo','Casa', 400000.00, 'alugar'),
+	(12, 'Santa Angelina', 'Rua João Goulart', 80.00, 'imgs/home/casa 12/area.jpg', 3, 'Casa em Santa Angelina', 'Casa', 2400.00, 'alugar'),
+	(13, 'Chácara Flora ', 'Rua João Evangelista Rodrigues Primiano', 120.50, 'imgs/home/casa 13/fachada.jpg', 10, 'Chácara com Piscina', 'Chácara', 3500.00, 'alugar'),
+	(14, 'Jardim Bandeirantes', 'Av. Alberto Benassi', 75.00, 'imgs/home/apartamento 14/predio.jpg', 5, 'Apartamento no Jardim Brasil', 'Apartamento', 2200.00, 'alugar'),
+	(15, 'Jardim Residencial Paraíso', 'Rua Bento Ramalho Machado', 90.00, 'imgs/home/apartamento 15/corredor.jpg', 5, 'Apartamento no Jardim Paraíso', 'Apartamento',  2800.00, 'alugar');
+ 
+	INSERT INTO `imoveis_comprar` (`id_casa`, `bairro`, `rua`, `area`, `foto`, `num_comodos`,`titulo_casa`, `tipo_de_imovel`,  `valor`, `finalidade` ) VALUES
+	(1, 'Portal das Tipuamas', ' Av. Luiz Dosualdo', 186, 'imgs/home/casa 1/fachada.jpg', 8, 'Casa de alto padrão condominio', 'Casa', 1590000.00, 'comprar'),
+	(2, 'Jardim Bandeirantes', 'Av. Alberto Benassi', 75.00, 'imgs/home/casa 2/varanda.jpg', 7, 'Casa no Jardim Bandeirantes','Casa', 220000.00, 'comprar'),
+	(3, 'Parque Gramado', 'Rua Afonso Pena', 90.00, 'imgs/home/casa 3/piscina.jpg', 9, 'Casa Parque Gramado com Piscina','Casa', 280000.00, 'comprar'),
+	(4, 'Jardim Santa Clara', 'Av. Éllio Polez', 60.00, 'imgs/home/casa 4/entrada.jpg', 6, 'Casa no Jardim Santa Clara','Casa', 180000.00, 'comprar'),
+	(5, 'Vila Yamada', 'Rua São Bento', 150.00, 'imgs/home/casa 5/fachada 1.jpg', 6, 'Sobrado na Vila Yamada','Sobrado', 400000.00, 'comprar'),
+	(6, 'VIla Xavier', 'Rua Treze de Maio', 80.00, 'imgs/home/casa 6/fachada 2.jpg', 9, 'Casa na Vila Xavier','Casa', 240000.00, 'comprar'),
+	(7, 'Jardim das Flores', 'Av. João Soares e Arruda', 250.50, 'imgs/home/casa 7/area 3.jpg', 6, 'Casa proxima ao Shooping Jaraguá','Casa', 350000.00, 'comprar'),
+	(8, 'Jardim Universal', 'Av. Brasil', 230.00, 'imgs/home/casa 8/fachada.jpg', 7, 'Casa Recém Reformada Jardim Universal','Casa', 220000.00, 'comprar'),
+	(9, 'Vila Nova', 'Rua Afonso Pena', 90.00, 'imgs/home/apartamento 9/quarto 3.jpg', 5, 'Apartamento Resedencial no Villa Nova','Apartamento', 280000.00, 'comprar'),
+	(10, 'Centro', 'Rua João Pessoa', 51.00, 'imgs/home/casa 10/entrada.jpg', 7, 'Casa no Centro ','Casa', 180000.00, 'comprar'),
+	(11, 'Parque São Paulo', 'Rua Ennio Rodrigues Caraça', 150.00, 'imgs/home/casa 11/area.jpg', 5, 'Casa no Parque São Paulo','Casa',  400000.00, 'comprar'),
+	(12, 'Santa Angelina', 'Rua João Goulart', 80.00, 'imgs/home/casa 12/area.jpg', 3, 'Casa em Santa Angelina', 'Casa', 240000.00, 'comprar'),
+	(13, 'Chácara Flora ', 'Rua João Evangelista Rodrigues Primiano', 120.50, 'imgs/home/casa 13/fachada.jpg', 10, 'Chácara com Piscina', 'Chácara', 350000.00, 'comprar'),
+	(14, 'Jardim Bandeirantes', 'Av. Alberto Benassi', 75.00, 'imgs/home/apartamento 14/predio.jpg', 5, 'Apartamento no Jardim Brasil', 'Apartamento', 220000.00, 'comprar'),
+	(15, 'Jardim Residencial Paraíso', 'Rua Bento Ramalho Machado', 90.00, 'imgs/home/apartamento 15/corredor.jpg', 5, 'Apartamento no Jardim Paraíso','Apartamento', 280000.00, 'comprar');
     
