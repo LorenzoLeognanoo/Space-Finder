@@ -44,8 +44,8 @@ if ($faixa_preco) {
     }
 }
 
-//limita para 20 resultados
-$sql .= " LIMIT 20";
+//limita para 15 resultados
+$sql .= " LIMIT 15";
 
 $result = $conn->query($sql);
 
@@ -264,9 +264,9 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       <?php else: ?>
         <div class="sem-resultados">
           <p>Nenhum imóvel encontrado com os filtros selecionados.</p>
-          <center> 
-         <br><br><a href="comprar.php" class="botao-ver-imoveis">Ver todos os imóveis</a>
-          </center>
+
+         <a href="comprar.php" class="botao-ver-imoveis">Ver todos os imóveis</a>
+
         </div>
       <?php endif; ?>
     </div>
@@ -317,10 +317,9 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
         window.location.href = `imovel-detalhes.php?id=${id}&tipo=comprar`;
     }
   </script>
-
   <style>
-
-
+    
+/* seção filtros */
     .secao-filtros {
       padding: 25px 30px;
     }
@@ -417,12 +416,16 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
    .botao-ver-imoveis{
       background: #1e40af;
       color: white;
-      padding: 12px 80px;
+      width: 30%;
+      padding: 12px;
       border-radius: 10px;
-      justify-content: center;
       text-decoration: none;
+      margin-top: 15px;
+      display: inline-block; 
     }
 
+    
+/* resultado busca */
     .secao-resultados {
       padding: 40px 30px;
     }
@@ -561,6 +564,8 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       background: #1e40af;
     }
 
+
+/* busca sem resultados */
     .sem-resultados {
       text-align: center;
       padding: 60px 30px;
@@ -568,8 +573,8 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
     }
 
       /* footer */
-      .footer {
-      background:rgb(14, 50, 148);
+    .footer {
+      background:#001f72ff;
       color:rgb(240, 240, 240);
     }
 
@@ -615,8 +620,30 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       justify-content: center;
       width: 40px;
       height: 40px;
-      background: #1e40af;
-  </style>
+      background: #001f72ff;
+      color: #b4b9c1ff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid #1e40af;  
+    }
+
+    .social-link:hover {
+      background: #3061ffff;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .contact-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid #fafbff49;
+      text-align: center;
+      color: #fafbff9e;
+    }
 
 </body>
 </html>

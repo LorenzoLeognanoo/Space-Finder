@@ -59,14 +59,14 @@
         <p> <a href="https://maps.google.com/?q=Av.+Bandeirantes,+503,+Araraquara" target="_blank">
           Av. Bandeirantes, 503 - Centro, Araraquara - SP, 14801-180
         </a></p><br>
-        <a href="https://api.whatsapp.com/send?phone=5516933005886&text=Ola%2C%20estou%20interessado%20em%20um%20im%C3%B3vel%20do%20site%20Space%20Finder!" target="_blank" class="whatsapp-button">
+        <a href="https://api.whatsapp.com/send?phone=5516933005886&text=Ola%2C%20eu%20quero%20falar%20com%20o%20suporte%20da%20Space%20Finder!%20%E2%98%9D%EF%B8%8F%F0%9F%98%8E" target="_blank" class="whatsapp-button">
        <i class="fab fa-whatsapp"></i> WhatsApp
 </a>
       </div>
     </div>
   </section><br><br>
 
-  <footer class="footer">
+   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
         <div class="footer-section">
@@ -104,6 +104,7 @@
       </div>
     </div>
   </footer>
+
 </body>
 </html>
 <style>
@@ -247,5 +248,76 @@
   text-decoration: none;
 }
 
+    /* footer */
+    .footer {
+      background:#001f72ff;
+      color:rgb(240, 240, 240);
+    }
 
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-subtitle {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-text {
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #001f72ff;
+      color: #b4b9c1ff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid #1e40af;  
+    }
+
+    .social-link:hover {
+      background: #3061ffff;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .contact-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid #fafbff49;
+      text-align: center;
+      color: #fafbff9e;
+    }
         </style>

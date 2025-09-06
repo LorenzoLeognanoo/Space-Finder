@@ -44,8 +44,8 @@ if ($faixa_preco) {
     }
 }
 
-//limita para 20 resultados
-$sql .= " LIMIT 20";
+//limita para 15 resultados
+$sql .= " LIMIT 15";
 
 $result = $conn->query($sql);
 
@@ -104,7 +104,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
   <!--seção filtros-->
   <section class="secao-filtros">
     <div class="container">
-      <div class="cartao-filtros">
+      <div class="cards-filtros">
         <form class="formulario-filtros" method="GET" action="alugar.php">
 
           <!--mantém a busca principal -->
@@ -219,28 +219,28 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       <?php if ($result && $result->num_rows > 0): ?>
         <div class="grade-resultados">
           <?php while($row = $result->fetch_assoc()): ?>
-            <div class="cartao-imovel" onclick="verDetalhes(<?php echo $row['id_casa']; ?>)">
-              <div class="container-imagem-cartao">
+            <div class="cards-imovel" onclick="verDetalhes(<?php echo $row['id_casa']; ?>)">
+              <div class="container-imagem-cards">
                 <img src="<?php echo !empty($row['foto']) ? htmlspecialchars($row['foto']) : 'imgs/placeholder.jpg'; ?>" 
-                     alt="<?php echo htmlspecialchars($row['tipo_de_imovel']); ?>" class="imagem-cartao">
-                <div class="etiqueta-cartao"><?php echo htmlspecialchars($row['tipo_de_imovel']); ?></div>
+                     alt="<?php echo htmlspecialchars($row['tipo_de_imovel']); ?>" class="imagem-cards">
+                <div class="etiqueta-cards"><?php echo htmlspecialchars($row['tipo_de_imovel']); ?></div>
               </div>
               
-              <div class="conteudo-cartao">
-                <div class="preco-cartao">
+              <div class="conteudo-cards">
+                <div class="preco-cards">
                   R$ <?php echo number_format($row['valor'], 2, ',', '.'); ?><span class="periodo">/mês</span>
                 </div>
                 
-                <h3 class="titulo-cartao">
+                <h3 class="titulo-cards">
                   <?php echo htmlspecialchars($row['titulo_casa']); ?>
                 </h3>
                 
-                <div class="localizacao-cartao">
+                <div class="localizacao-cards">
                   <i class="fas fa-map-marker-alt"></i>
                   <?php echo htmlspecialchars($row['bairro']); ?><?php if(!empty($row['rua'])): ?> - <?php echo htmlspecialchars($row['rua']); ?><?php endif; ?>
                 </div>
                 
-                <div class="caracteristicas-cartao">
+                <div class="caracteristicas-cards">
                   <div class="caracteristica">
                     <i class="fas fa-bed"></i>
                     <span><?php echo intval($row['num_comodos']); ?> cômodos</span>
@@ -251,7 +251,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
                   </div>
                 </div>
                 
-                <div class="rodape-cartao">
+                <div class="rodape-cards">
                   <button class="botao-detalhes">
                     <span>Ver Detalhes</span>
                     <i class="fas fa-arrow-right"></i>
@@ -264,9 +264,9 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       <?php else: ?>
         <div class="sem-resultados">
           <p>Nenhum imóvel encontrado com os filtros selecionados.</p>
-          <center> 
-         <br><br><a href="alugar.php" class="botao-ver-imoveis">Ver todos os imóveis</a>
-          </center>
+
+         <a href="alugar.php" class="botao-ver-imoveis">Ver todos os imóveis</a>
+
         </div>
       <?php endif; ?>
     </div>
@@ -319,11 +319,13 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
   </script>
 
   <style>
+
+    /* seção filtros */
     .secao-filtros {
       padding: 25px 30px;
     }
 
-    .cartao-filtros {
+    .cards-filtros {
       background: white;
       border-radius: 10px;
       padding: 20px;
@@ -415,12 +417,16 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
    .botao-ver-imoveis{
       background: #1e40af;
       color: white;
-      padding: 12px 80px;
+      width: 30%;
+      padding: 12px;
       border-radius: 10px;
-      justify-content: center;
       text-decoration: none;
+      margin-top: 15px;
+      display: inline-block; 
     }
 
+
+    /* resultado busca */
     .secao-resultados {
       padding: 40px 30px;
     }
@@ -441,7 +447,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       margin: 0 auto;
     }
 
-    .cartao-imovel {
+    .cards-imovel {
       background: white;
       border-radius: 10px;
       overflow: hidden;
@@ -451,24 +457,24 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       border: 1px solid #e9ecef;
     }
 
-    .cartao-imovel:hover {
+    .cards-imovel:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     }
 
-    .container-imagem-cartao {
+    .container-imagem-cards {
       position: relative;
       height: 220px;
       overflow: hidden;
     }
 
-    .imagem-cartao {
+    .imagem-cards {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .etiqueta-cartao {
+    .etiqueta-cards {
       position: absolute;
       top: 12px;
       left: 12px;
@@ -481,24 +487,24 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       text-transform: uppercase;
     }
 
-    .conteudo-cartao {
+    .conteudo-cards {
       padding: 25px 20px;
     }
 
-    .preco-cartao {
+    .preco-cards {
       font-size: 1.5rem;
       font-weight: 700;
       color: #1d4ed8;
       margin-bottom: 10px;
     }
 
-    .preco-cartao .periodo {
+    .preco-cards .periodo {
       font-size: 0.75rem;
       color: #6c757d;
       font-weight: 400;
     }
 
-    .titulo-cartao {
+    .titulo-cards {
       font-size: 1.1rem;
       font-weight: 600;
       color: #343a40;
@@ -506,7 +512,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       line-height: 1.3;
     }
 
-    .localizacao-cartao {
+    .localizacao-cards {
       display: flex;
       align-items: center;
       gap: 6px;
@@ -515,11 +521,11 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       font-size: 14px;
     }
 
-    .localizacao-cartao i {
+    .localizacao-cards i {
       color: #1d4ed8;
     }
 
-    .caracteristicas-cartao {
+    .caracteristicas-cards {
       display: flex;
       gap: 20px;
       margin-bottom: 20px;
@@ -558,16 +564,17 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
     .botao-detalhes:hover {
       background: #1e40af;
     }
-
+    
+/* busca sem resultados */
     .sem-resultados {
       text-align: center;
       padding: 60px 30px;
       color: #6c757d;
     }
 
-      /* footer */
-      .footer {
-      background:rgb(14, 50, 148);
+       /* footer */
+    .footer {
+      background:#001f72ff;
       color:rgb(240, 240, 240);
     }
 
@@ -613,8 +620,30 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       justify-content: center;
       width: 40px;
       height: 40px;
-      background: #1e40af;
-  </style>
+      background: #001f72ff;
+      color: #b4b9c1ff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid #1e40af;  
+    }
+
+    .social-link:hover {
+      background: #3061ffff;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .contact-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid #fafbff49;
+      text-align: center;
+      color: #fafbff9e;
+    }
 
 </body>
 </html>

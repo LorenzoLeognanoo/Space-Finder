@@ -462,11 +462,9 @@ if (empty($imagens_imovel)) {
             text-decoration: none;
         }
 
-       
-        /* footer */
-  /* footer */
-  .footer {
-      background:rgb(14, 50, 148);
+      /* footer */
+    .footer {
+      background: #010d2dff;
       color:rgb(240, 240, 240);
     }
 
@@ -512,8 +510,31 @@ if (empty($imagens_imovel)) {
       justify-content: center;
       width: 40px;
       height: 40px;
-      background: #1e40af;
- }
+      background: #010d2dff;
+      color: #b4b9c1ff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid #1e40af;  
+    }
+
+    .social-link:hover {
+      background: #3061ffff;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .contact-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid #fafbff49;
+      text-align: center;
+      color: #fafbff9e;
+    }
+
         /* Responsividade */
         @media (max-width: 768px) {
             .container {

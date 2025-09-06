@@ -121,10 +121,10 @@ if ($busca) {
     <div class="hero-fundo"></div>
   </section>
 
-  <section class="properties-section">
+  <section class="cards-destaque-body">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-titulo">
+      <div class="topo-cards">
+        <h2 class="titulo-cardss">
           <?php 
           if ($busca) {
               $total_encontrados = count($imoveis_encontrados);
@@ -135,30 +135,30 @@ if ($busca) {
           ?>
         </h2>
         <?php if (!$busca): ?>
-          <p class="section-subtitulo">Descubra as melhores opções para você</p>
+          <p class="subtitulo-cardss">Descubra as melhores opções para você</p>
         <?php endif; ?>
       </div>
 
-      <div class="properties-grid">
+      <div class="grade-cards">
         <?php if (!empty($imoveis_encontrados)): ?>
           <?php foreach ($imoveis_encontrados as $row): ?>
-            <div class="property-card" onclick="verDetalhes(<?php echo $row['id_casa']; ?>, '<?php echo $row['tipo_transacao']; ?>')">
-              <div class="property-image">
-                <img src="<?php echo htmlspecialchars($row['foto']); ?>" alt="Imagem do imóvel" class="property-img" />
-                <div class="property-etiqueta <?php echo ($row['tipo_transacao'] == 'alugar') ? 'etiqueta-alugar' : 'etiqueta-comprar'; ?>">
+            <div class="cards" onclick="verDetalhes(<?php echo $row['id_casa']; ?>, '<?php echo $row['tipo_transacao']; ?>')">
+              <div class="imagem-cards">
+                <img src="<?php echo htmlspecialchars($row['foto']); ?>" alt="Imagem do imóvel" class="img-cards" />
+                <div class="etiqueta-cards <?php echo ($row['tipo_transacao'] == 'alugar') ? 'etiqueta-alugar' : 'etiqueta-comprar'; ?>">
                   <?php echo ($row['tipo_transacao'] == 'alugar') ? 'Alugar' : 'Comprar'; ?>
                 </div>
               </div>
-              <div class="property-info">
-                <h3 class="property-titulo"><?php echo htmlspecialchars($row['titulo_casa']); ?></h3>
-                <div class="property-localização">
+              <div class="info-cards">
+                <h3 class="titulo-cards"><?php echo htmlspecialchars($row['titulo_casa']); ?></h3>
+                <div class="endereco-imovel">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 10 c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
                   <?php echo htmlspecialchars($row['bairro']); ?><?php if(!empty($row['rua'])): ?> - <?php echo htmlspecialchars($row['rua']); ?><?php endif; ?>
                 </div>
-                <div class="property-detalhes">
+                <div class="detalhes-imovel">
                   <span class="itens-detalhes">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -181,7 +181,7 @@ if ($busca) {
                     <?php echo htmlspecialchars($row['tipo_de_imovel']); ?>
                   </span>
                 </div>
-                <div class="property-preço">
+                <div class="preco-imovel">
                   R$ <?php echo number_format($row['valor'], 2, ',', '.'); ?>
                   <?php echo ($row['tipo_transacao'] == 'alugar') ? '<span class="period">/mês</span>' : ''; ?>
                 </div>
@@ -284,9 +284,9 @@ if ($busca) {
       width: 80%;
       height: 200%;
       background: linear-gradient(45deg,rgb(0, 68, 255) 0%, #8b5cf6 100%);
-      opacity: 0.05;
+      opacity: 0.08;
       border-radius: 50%;
-      transform: rotate(-15deg);
+      transform: rotate(15deg);
     }
 
     .hero-container {
@@ -374,26 +374,27 @@ if ($busca) {
     }
 
     .link-rapido {
-      background: #1d4ed8;
-      color: white;
-      padding: 10px 20px;
+      background: rgba(59, 130, 246, 0.1);
+      color: #3b82f6;
+      padding: 12px 24px;
       border-radius: 25px;
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
       transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.2);
     }
 
     .link-rapido:hover {
-      background: #1e40af;
+      background: #0029aeb7;
       text-decoration: none;
       color: white;
       transform: translateY(-2px);
     }
 
-    /* properties section */
-    .properties-section {
+  
+    /* cards destaque */
+    .cards-destaque-body {
       padding: 5rem 2rem;
       background: #f8fafc;
     }
@@ -403,30 +404,30 @@ if ($busca) {
       margin: 0 auto;
     }
 
-    .section-header {
+    .topo-cards {
       text-align: center;
       margin-bottom: 3rem;
     }
 
-    .section-titulo {
+    .titulo-cardss {
       font-size: 2.5rem;
       font-weight: 700;
       color: #1e293b;
       margin-bottom: 1rem;
     }
 
-    .section-subtitulo {
+    .subtitulo-cardss {
       font-size: 1.125rem;
       color: #64748b;
     }
 
-    .properties-grid {
+    .grade-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
-    .property-card {
+    .cards {
       background: white;
       border-radius: 16px;
       overflow: hidden;
@@ -436,29 +437,29 @@ if ($busca) {
       cursor: pointer;
     }
 
-    .property-card:hover {
+    .cards:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     }
 
-    .property-image {
+    .imagem-cards {
       position: relative;
       height: 220px;
       overflow: hidden;
     }
 
-    .property-img {
+    .img-cards {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
     }
 
-    .property-card:hover .property-img {
+    .cards:hover .img-cards {
       transform: scale(1.05);
     }
 
-    .property-etiqueta {
+    .etiqueta-cards {
       position: absolute;
       top: 1rem;
       left: 1rem;
@@ -480,11 +481,11 @@ if ($busca) {
       color: white;
     }
 
-    .property-info {
+    .info-cards {
       padding: 1.5rem;
     }
 
-    .property-titulo {
+    .titulo-cards {
       font-size: 1.25rem;
       font-weight: 600;
       color: #1e293b;
@@ -492,7 +493,7 @@ if ($busca) {
       line-height: 1.3;
     }
 
-    .property-localização {
+    .endereco-imovel {
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -501,7 +502,7 @@ if ($busca) {
       margin-bottom: 1rem;
     }
 
-    .property-detalhes {
+    .detalhes-imovel {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
@@ -516,19 +517,19 @@ if ($busca) {
       font-size: 0.85rem;
     }
 
-    .property-preço {
+    .preco-imovel {
       font-size: 1.5rem;
       font-weight: 700;
       color: #3b82f6;
     }
 
-    .property-preço .period {
+    .preco-imovel .period {
       font-size: 0.9rem;
       color: #64748b;
       font-weight: 400;
-    }
+    } 
 
-    /* sem resultado */
+    /* busca sem resultado  */
     .sem-resultado {
       grid-column: 1 / -1;
       display: flex;
@@ -585,7 +586,7 @@ if ($busca) {
 
     /* footer */
     .footer {
-      background:rgb(14, 50, 148);
+      background:#001f72ff;
       color:rgb(240, 240, 240);
     }
 
@@ -631,15 +632,16 @@ if ($busca) {
       justify-content: center;
       width: 40px;
       height: 40px;
-      background: #1e40af;
-      color: #94a3b8;
+      background: #001f72ff;
+      color: #b4b9c1ff;
       border-radius: 8px;
       text-decoration: none;
       transition: all 0.2s ease;
+      border: 1px solid #1e40af;  
     }
 
     .social-link:hover {
-      background: #3b82f6;
+      background: #3061ffff;
       color: white;
       transform: translateY(-2px);
     }
@@ -650,9 +652,9 @@ if ($busca) {
 
     .footer-bottom {
       padding-top: 2rem;
-      border-top: 1px solid #334155;
+      border-top: 1px solid #fafbff49;
       text-align: center;
-      color:rgba(231, 231, 231, 0.59);
+      color: #fafbff9e;
     }
 
     /* responsividade mobile */
@@ -681,16 +683,16 @@ if ($busca) {
         gap: 10px;
       }
 
-      .section-titulo {
+      .titulo-cardss {
         font-size: 2rem;
       }
 
-      .properties-grid {
+      .grade-cards {
         grid-template-columns: 1fr;
         gap: 1.5rem;
       }
 
-      .property-detalhes {
+      .detalhes-imovel {
         flex-direction: column;
         gap: 0.5rem;
       }
