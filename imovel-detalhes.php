@@ -31,7 +31,7 @@ if (!$result || $result->num_rows == 0) {
 $imovel = $result->fetch_assoc();
 
 //array de imagens baseado no ID do imóvel e tipo
-$tipo_pasta = strtolower($imovel['tipo_de_imovel']) == 'apartamento' ? 'apartamento' : 'casa';
+$tipo_pasta = strtolower($imovel['tipo']) == 'apartamento' ? 'apartamento' : 'casa';
 $pasta_imovel = "imgs/home/" . $tipo_pasta . " " . $id_imovel . "/";
 
 clearstatcache(); //limpa cache do PHP
@@ -76,7 +76,7 @@ if (is_dir($pasta_imovel)) {
     foreach($imagens_disponiveis as $imagem) {
         $caminho_completo = realpath($pasta_imovel . $imagem);
         if ($caminho_completo && file_exists($caminho_completo)) {
-            //tempo para limpar cache navegador
+            //limpar cache navegador para nao bugar
             $imagens_imovel[] = $pasta_imovel . $imagem . "?v=" . filemtime($caminho_completo);
         }
     }
@@ -151,13 +151,13 @@ if (empty($imagens_imovel)) {
         <!-- informações principais -->
         <div class="main-info">
             <h2>R$ <?php echo number_format($imovel['valor'], 2, ',', '.'); ?><?php echo $periodo_preco; ?></h2>
-            <p><?php echo number_format($imovel['area'], 0, ',', '.'); ?>m² • <?php echo intval($imovel['num_comodos']); ?> cômodos • <?php echo htmlspecialchars($imovel['tipo_de_imovel']); ?></p>
+            <p><?php echo number_format($imovel['area'], 0, ',', '.'); ?>m² • <?php echo intval($imovel['num_comodos']); ?> cômodos • <?php echo htmlspecialchars($imovel['tipo']); ?></p>
             <p class="local"><?php echo htmlspecialchars($imovel['bairro']); ?><?php if(!empty($imovel['rua'])): ?> - <?php echo htmlspecialchars($imovel['rua']); ?><?php endif; ?>, Araraquara - SP</p>
             
             <div class="titulo-info">
                 <h1><?php echo htmlspecialchars($imovel['titulo_casa']); ?></h1>
                 <ul>
-                    <li>Tipo: <?php echo htmlspecialchars($imovel['tipo_de_imovel']); ?></li>
+                    <li>Tipo: <?php echo htmlspecialchars($imovel['tipo']); ?></li>
                     <li>Área: <?php echo number_format($imovel['area'], 0, ',', '.'); ?>m²</li>
                     <li>Cômodos: <?php echo intval($imovel['num_comodos']); ?></li>
                     <li>Bairro: <?php echo htmlspecialchars($imovel['bairro']); ?></li>
@@ -186,8 +186,8 @@ if (empty($imagens_imovel)) {
         <!-- formulário lateral -->
         <aside class="form-box">
             <div class="corretor">
-                <h4>Ricardo Sena Magnavita</h4>
-                <p>Creci: 09334-F-BA</p>
+                <h4>Flávio Donizete da Silva Moreno</h4>
+                <p>Creci: 200.250-SP</p>
             </div>
 
             <a class="whatsapp-button" href="https://wa.me/5516333330005?text=Olá, tenho interesse no imóvel: <?php echo urlencode($imovel['titulo_casa']); ?>" target="_blank">
@@ -261,23 +261,6 @@ if (empty($imagens_imovel)) {
     </script>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: white;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            margin-top: 10px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-            padding: 0 20px;
-            background: white;
-        }
 
         /* logo */
         .logo {  

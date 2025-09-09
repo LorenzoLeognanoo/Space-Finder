@@ -12,14 +12,14 @@ if ($busca) {
     $sql_alugar = "SELECT *, 'alugar' as tipo_transacao FROM imoveis_alugar
                    WHERE bairro LIKE '%$busca%' 
                    OR rua LIKE '%$busca%' 
-                   OR tipo_de_imovel LIKE '%$busca%'
+                   OR tipo LIKE '%$busca%'
                    OR titulo_casa LIKE '%$busca%'
                    LIMIT 5";
     
     $sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
                     WHERE bairro LIKE '%$busca%' 
                     OR rua LIKE '%$busca%' 
-                    OR tipo_de_imovel LIKE '%$busca%'
+                    OR tipo LIKE '%$busca%'
                     OR titulo_casa LIKE '%$busca%'
                     LIMIT 5";
     
@@ -43,13 +43,14 @@ if ($busca) {
     }
     
 } else {
+
     // imóveis em destaque alugar e comprar
     $sql_destaque = "
-        (SELECT *, 'alugar' as tipo_transacao FROM imoveis_alugar LIMIT 5)
+        (SELECT *, 'alugar' as tipo_transacao FROM imoveis_alugar LIMIT 6)
         UNION ALL
-        (SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar LIMIT 5)
+        (SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar LIMIT 6)
         ORDER BY RAND()
-        LIMIT 10
+        LIMIT 12
     ";
     
     $result = $conn->query($sql_destaque);
@@ -99,7 +100,7 @@ if ($busca) {
   <section class="hero-section">
     <div class="hero-container">
       <h1 class="hero-titulo">Encontre seu espaço ideal</h1>
-      <p class="hero-subtitulo">Alugue ou compre imóveis de forma fácil, rápida e segura com a  <strong class="space-negrito"> SPACE FINDER </strong>.</p>
+      <p class="hero-subtitulo">Alugue ou compre imóveis de forma fácil, rápida e segura com a  <strong class="space-negrito"> SPACE FINDER</strong>.</p>
 
       <form class="search-container" method="GET" action="index.php">
         <div class="search-box">
@@ -149,6 +150,7 @@ if ($busca) {
                   <?php echo ($row['tipo_transacao'] == 'alugar') ? 'Alugar' : 'Comprar'; ?>
                 </div>
               </div>
+
               <div class="info-cards">
                 <h3 class="titulo-cards"><?php echo htmlspecialchars($row['titulo_casa']); ?></h3>
                 <div class="endereco-imovel">
@@ -158,6 +160,7 @@ if ($busca) {
                   </svg>
                   <?php echo htmlspecialchars($row['bairro']); ?><?php if(!empty($row['rua'])): ?> - <?php echo htmlspecialchars($row['rua']); ?><?php endif; ?>
                 </div>
+
                 <div class="detalhes-imovel">
                   <span class="itens-detalhes">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -166,6 +169,7 @@ if ($busca) {
                     </svg>
                     <?php echo (int)$row['num_comodos']; ?> cômodos
                   </span>
+
                   <span class="itens-detalhes">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
@@ -174,17 +178,48 @@ if ($busca) {
                     </svg>
                     <?php echo number_format($row['area'], 0, ',', '.'); ?> m²
                   </span>
+
+                  <span class="itens-detalhes">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="3" x2="12" y2="10" />
+                  <path d="M8 10h8a2 2 0 0 1 0 4h-8a2 2 0 0 1 0-4z" />
+                  <line x1="9" y1="16" x2="9" y2="18" />
+                  <line x1="12" y1="16" x2="12" y2="19" />
+                  <line x1="15" y1="16" x2="15" y2="18" />
+                  </svg>
+                    <?php     $qtd = (int)$row['banheiro'];
+                   echo number_format($qtd, 0, ',', '.'); 
+                    echo " " . ($qtd > 1 ? "Banheiros" : "Banheiro"); 
+                    ?>
+                  </span> 
+
+                  <span class="itens-detalhes">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="10" width="18" height="7" rx="2" ry="2" />
+                  <rect x="5" y="6" width="6" height="4" rx="1" ry="1" />
+                  <line x1="7" y1="17" x2="7" y2="20" />
+                 <line x1="17" y1="17" x2="17" y2="20" />
+                  </svg>
+
+                  <?php     $qtd = (int)$row['quarto'];
+                   echo number_format($qtd, 0, ',', '.'); 
+                    echo " " . ($qtd > 1 ? "Quartos" : "Quarto"); 
+                    ?>
+                  </span> 
+
                   <span class="itens-detalhes">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                     </svg>
-                    <?php echo htmlspecialchars($row['tipo_de_imovel']); ?>
+                    <?php echo htmlspecialchars($row['tipo']); ?>
                   </span>
                 </div>
+
                 <div class="preco-imovel">
                   R$ <?php echo number_format($row['valor'], 2, ',', '.'); ?>
                   <?php echo ($row['tipo_transacao'] == 'alugar') ? '<span class="period">/mês</span>' : ''; ?>
                 </div>
+
               </div>
             </div>
           <?php endforeach; ?>
@@ -314,6 +349,7 @@ if ($busca) {
       margin-right: auto;
     }
 
+       /* barra de pesquisa */
     .search-container {
       max-width: 600px;
       margin: 0 auto;
@@ -472,12 +508,12 @@ if ($busca) {
     }
 
     .etiqueta-alugar {
-      background: #10b981;
+      background: #f59e0b;
       color: white;
     }
 
     .etiqueta-comprar {
-      background: #f59e0b;
+      background: #10b981;
       color: white;
     }
 

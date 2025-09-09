@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 //recebe os parâmetros de busca e filtros
 $busca = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 $bairro = isset($_GET['bairro']) ? $conn->real_escape_string($_GET['bairro']) : '';
-$tipo = isset($_GET['tipo_de_imovel']) ? $conn->real_escape_string($_GET['tipo']) : '';
+$tipo = isset($_GET['tipo']) ? $conn->real_escape_string($_GET['tipo']) : '';
 $comodos = isset($_GET['num_comodos']) ? intval($_GET['num_comodos']) : '';
 $faixa_preco = isset($_GET['faixa_preco']) ? $_GET['faixa_preco'] : '';
 
@@ -19,7 +19,7 @@ $sql = "SELECT * FROM imoveis_comprar WHERE 1=1";
 if ($busca) {
     $sql .= " AND (bairro LIKE '%$busca%' 
              OR rua LIKE '%$busca%' 
-             OR tipo_de_imovel LIKE '%$busca%')";
+             OR tipo LIKE '%$busca%')";
 }
 
 //aplica filtros específicos
@@ -28,7 +28,7 @@ if ($bairro) {
 }
 
 if ($tipo) {
-    $sql .= " AND tipo_de_imovel = '$tipo'";
+    $sql .= " AND tipo = '$tipo'";
 }
 
 if ($comodos) {
@@ -51,7 +51,7 @@ $result = $conn->query($sql);
 
 //busca dados para os filtros 
 $bairros_result = $conn->query("SELECT DISTINCT bairro FROM imoveis_comprar WHERE bairro != '' ORDER BY bairro");
-$tipos_result = $conn->query("SELECT DISTINCT tipo_de_imovel FROM imoveis_comprar WHERE tipo_de_imovel != '' ORDER BY tipo_de_imovel");
+$tipos_result = $conn->query("SELECT DISTINCT tipo FROM imoveis_comprar WHERE tipo != '' ORDER BY tipo");
 $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar WHERE num_comodos > 0 ORDER BY num_comodos");
 ?>
 
@@ -140,9 +140,9 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
                 <option value="">Todos os tipos</option>
                 <?php if ($tipos_result && $tipos_result->num_rows > 0): ?>
                   <?php while($row = $tipos_result->fetch_assoc()): ?>
-                    <option value="<?php echo htmlspecialchars($row['tipo_de_imovel']); ?>"
-                            <?php echo ($tipo == $row['tipo_de_imovel']) ? 'selected' : ''; ?>>
-                      <?php echo htmlspecialchars($row['tipo_de_imovel']); ?>
+                    <option value="<?php echo htmlspecialchars($row['tipo']); ?>"
+                            <?php echo ($tipo == $row['tipo']) ? 'selected' : ''; ?>>
+                      <?php echo htmlspecialchars($row['tipo']); ?>
                     </option>
                   <?php endwhile; ?>
                 <?php endif; ?>
@@ -222,8 +222,8 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
             <div class="cartao-imovel" onclick="verDetalhes(<?php echo $row['id_casa']; ?>)">
               <div class="container-imagem-cartao">
                 <img src="<?php echo !empty($row['foto']) ? htmlspecialchars($row['foto']) : 'imgs/placeholder.jpg'; ?>" 
-                     alt="<?php echo htmlspecialchars($row['tipo_de_imovel']); ?>" class="imagem-cartao">
-                <div class="etiqueta-cartao"><?php echo htmlspecialchars($row['tipo_de_imovel']); ?></div>
+                     alt="<?php echo htmlspecialchars($row['tipo']); ?>" class="imagem-cartao">
+                <div class="etiqueta-cartao"><?php echo htmlspecialchars($row['tipo']); ?></div>
               </div>
               
               <div class="conteudo-cartao">
