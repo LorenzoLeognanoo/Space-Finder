@@ -12,7 +12,7 @@ $tipo = isset($_GET['tipo']) ? $conn->real_escape_string($_GET['tipo']) : '';
 $comodos = isset($_GET['num_comodos']) ? intval($_GET['num_comodos']) : '';
 $faixa_preco = isset($_GET['faixa_preco']) ? $_GET['faixa_preco'] : '';
 
-//monta a consulta SQL 
+//monta a busca SQL 
 $sql = "SELECT * FROM imoveis_alugar WHERE 1=1";
 
 //aplica busca geral 
@@ -234,23 +234,35 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
                 <h3 class="titulo-cards">
                   <?php echo htmlspecialchars($row['titulo_casa']); ?>
                 </h3>
-                
+
                 <div class="localizacao-cards">
                   <i class="fas fa-map-marker-alt"></i>
                   <?php echo htmlspecialchars($row['bairro']); ?><?php if(!empty($row['rua'])): ?> - <?php echo htmlspecialchars($row['rua']); ?><?php endif; ?>
                 </div>
                 
                 <div class="caracteristicas-cards">
-                  <div class="caracteristica">
-                    <i class="fas fa-bed"></i>
-                    <span><?php echo intval($row['num_comodos']); ?> cômodos</span>
-                  </div>
-                  <div class="caracteristica">
-                    <i class="fas fa-ruler-combined"></i>
-                    <span><?php echo number_format($row['area'], 0, ',', '.'); ?> m²</span>
-                  </div>
+                <div class="caracteristica">
+                <i class="fas fa-th-large"></i> 
+                <span><?php echo intval($row['num_comodos']); ?> cômodos</span>
                 </div>
-                
+
+                <div class="caracteristica">
+                <i class="fas fa-bed"></i> 
+                <span><?php echo intval($row['quarto']); ?> Quarto<?php echo intval($row['quarto']) > 1 ? 's' : ''; ?></span>
+                </div>
+
+                <div class="caracteristica">
+                <i class="fas fa-bath"></i> 
+                <span><?php echo intval($row['banheiro']); ?> Banheiro<?php echo intval($row['banheiro']) > 1 ? 's' : ''; ?></span>
+               </div>
+
+                <div class="caracteristica">
+                <i class="fas fa-ruler-combined"></i>
+                <span><?php echo number_format($row['area'], 0, ',', '.'); ?> m²</span>
+                </div>
+                </div>
+
+
                 <div class="rodape-cards">
                   <button class="botao-detalhes">
                     <span>Ver Detalhes</span>
@@ -262,6 +274,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
           <?php endwhile; ?>
         </div>
       <?php else: ?>
+
         <div class="sem-resultados">
           <p>Nenhum imóvel encontrado com os filtros selecionados.</p>
 
@@ -447,6 +460,8 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       margin: 0 auto;
     }
 
+
+    /* cards */
     .cards-imovel {
       background: white;
       border-radius: 10px;
@@ -533,6 +548,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       border-top: 1px solid #f1f3f4;
     }
 
+
     .caracteristica {
       display: flex;
       align-items: center;
@@ -565,14 +581,14 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       background: #1e40af;
     }
     
-/* busca sem resultados */
+   /* busca sem resultados */
     .sem-resultados {
       text-align: center;
       padding: 60px 30px;
       color: #6c757d;
     }
 
-       /* footer */
+    /* footer */
     .footer {
       background:#001f72ff;
       color:rgb(240, 240, 240);

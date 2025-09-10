@@ -187,10 +187,7 @@ if ($busca) {
                   <line x1="12" y1="16" x2="12" y2="19" />
                   <line x1="15" y1="16" x2="15" y2="18" />
                   </svg>
-                    <?php     $qtd = (int)$row['banheiro'];
-                   echo number_format($qtd, 0, ',', '.'); 
-                    echo " " . ($qtd > 1 ? "Banheiros" : "Banheiro"); 
-                    ?>
+                  <?php echo intval($row['banheiro']); ?> Banheiro<?php echo intval($row['banheiro']) > 1 ? 's' : ''; ?></span>
                   </span> 
 
                   <span class="itens-detalhes">
@@ -200,11 +197,7 @@ if ($busca) {
                   <line x1="7" y1="17" x2="7" y2="20" />
                  <line x1="17" y1="17" x2="17" y2="20" />
                   </svg>
-
-                  <?php     $qtd = (int)$row['quarto'];
-                   echo number_format($qtd, 0, ',', '.'); 
-                    echo " " . ($qtd > 1 ? "Quartos" : "Quarto"); 
-                    ?>
+                  <?php echo intval($row['quarto']); ?> Quarto<?php echo intval($row['quarto']) > 1 ? 's' : ''; ?></span>
                   </span> 
 
                   <span class="itens-detalhes">
@@ -224,6 +217,7 @@ if ($busca) {
             </div>
           <?php endforeach; ?>
         <?php else: ?>
+          
           <div class="sem-resultado">
             <div class="sem-resultado-content">
               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="sem-resultado-icon">
