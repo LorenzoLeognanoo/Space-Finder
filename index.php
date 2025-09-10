@@ -73,7 +73,9 @@ if ($busca) {
   <title>Space Finder</title>
   <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -104,9 +106,9 @@ if ($busca) {
 
       <form class="search-container" method="GET" action="index.php">
         <div class="search-box">
-          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/>
-            <path d="21 21l-4.35-4.35"/>
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+</svg>
           </svg>
           <input type="text" name="q" placeholder="Digite uma localização ou tipo de imóvel..." class="search-input" value="<?php echo htmlspecialchars($busca); ?>" />
           <button type="submit" class="search-btn">Buscar</button>
@@ -292,21 +294,17 @@ if ($busca) {
     }
   </script>
 
-  <style>
+  <style>  
 
-      .space-negrito {
-      color: #1e40af ;
-    }
-
-      /* hero section */
+  /* hero section */
       .hero-section {
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       padding: 8rem 2rem 4rem;
       position: relative;
       overflow: hidden;
-    }
+      }
 
-    .hero-fundo {
+      .hero-fundo {
       position: absolute;
       top: -50%;
       right: -20%;
@@ -318,7 +316,7 @@ if ($busca) {
       transform: rotate(15deg);
     }
 
-    .hero-container {
+      .hero-container {
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
@@ -326,12 +324,18 @@ if ($busca) {
       z-index: 2;
     }
 
-    .hero-titulo {
+      .hero-titulo {
       font-size: 3.5rem;
       font-weight: 700;
       color: #1e40af;
       margin-bottom: 1.5rem;
       line-height: 1.2;
+      font-weight: 800; 
+    }
+
+      .space-negrito {
+      color: #1e40af ;
+      font-weight: 800; 
     }
 
     .hero-subtitulo {
@@ -360,6 +364,8 @@ if ($busca) {
     }
 
     .search-icon {
+      width: 24px;
+      height: 24px;
       color: #64748b;
       margin-left: 1rem;
       flex-shrink: 0;
@@ -395,7 +401,7 @@ if ($busca) {
     }
 
 
-    /* links rapidos */
+  /* links rapidos */
     .links-rapidos {
       display: flex;
       justify-content: center;
@@ -423,7 +429,7 @@ if ($busca) {
     }
 
   
-    /* cards destaque */
+  /* cards destaque */
     .cards-destaque-body {
       padding: 5rem 2rem;
       background: #f8fafc;
@@ -551,6 +557,7 @@ if ($busca) {
       font-size: 1.5rem;
       font-weight: 700;
       color: #3b82f6;
+      font-weight: 800;
     }
 
     .preco-imovel .period {
@@ -559,7 +566,7 @@ if ($busca) {
       font-weight: 400;
     } 
 
-    /* busca sem resultado  */
+  /* busca sem resultado  */
     .sem-resultado {
       grid-column: 1 / -1;
       display: flex;
@@ -614,119 +621,10 @@ if ($busca) {
       transform: translateY(-1px);
     }
 
-    /* footer */
-    .footer {
-      background:#001f72ff;
-      color:rgb(240, 240, 240);
-    }
+</style>
+</body>
+</html>
 
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem 1rem;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 3rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .footer-subtitle {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .footer-text {
-      margin-bottom: 1.5rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: #001f72ff;
-      color: #b4b9c1ff;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid #1e40af;  
-    }
-
-    .social-link:hover {
-      background: #3061ffff;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .contact-item {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-bottom {
-      padding-top: 2rem;
-      border-top: 1px solid #fafbff49;
-      text-align: center;
-      color: #fafbff9e;
-    }
-
-    /* responsividade mobile */
-    @media (max-width: 768px) {
-      .hero-titulo {
-        font-size: 2.5rem;
-      }
-
-      .hero-subtitulo {
-        font-size: 1.125rem;
-      }
-
-      .search-box {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-      }
-
-      .search-input {
-        padding: 0.75rem;
-      }
-
-      .links-rapidos {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .titulo-cardss {
-        font-size: 2rem;
-      }
-
-      .grade-cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .detalhes-imovel {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .footer-content { 
-        grid-template-columns: 1fr;
-        gap: 2
+<?php
+$conn->close();
+?>

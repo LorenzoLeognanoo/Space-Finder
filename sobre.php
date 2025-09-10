@@ -7,7 +7,9 @@
   <title>Space</title>
   <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="script.js">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -119,7 +121,7 @@
   color: white;              
   padding: 40px 100px;      
   border-radius: 12px;      
-  font-weight: 800;         
+  font-weight: 900;         
   font-size: 50px;          
   margin-top: 40px;         
 }
@@ -163,78 +165,4 @@
   color: #1d3682;
   margin-bottom: 130px;
 }
-
-    /* footer */
-    .footer {
-      background:#001f72ff;
-      color:rgb(240, 240, 240);
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem 1rem;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 3rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .footer-subtitle {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .footer-text {
-      margin-bottom: 1.5rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: #001f72ff;
-      color: #b4b9c1ff;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid #1e40af;  
-    }
-
-    .social-link:hover {
-      background: #3061ffff;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .contact-item {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-bottom {
-      padding-top: 2rem;
-      border-top: 1px solid #fafbff49;
-      text-align: center;
-      color: #fafbff9e;
-    }
-
 </style>

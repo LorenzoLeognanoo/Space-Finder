@@ -106,6 +106,9 @@ if (empty($imagens_imovel)) {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -261,81 +264,7 @@ if (empty($imagens_imovel)) {
     </script>
 
     <style>
-
-        /* logo */
-        .logo {  
-            height: 70px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        /* links navbar */
-        .nav-links {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            gap: 25px;
-            list-style: none;
-            margin-top: -2px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: black;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #1d4ed8;
-        }
-
-        .nav-links a.active {
-            border-bottom: 2px solid #1d4ed8;
-            color: #153eb5;
-        }
-
-        /* menu hamburguer para mobile */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;        
-            gap: 5px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: black;
-            transition: 0.3s ease;
-        }
-
-        /* responsividade site */
-        @media (max-width: 885px) {
-            .nav-links {
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                transform: none;
-                display: none;
-                flex-direction: column;
-                background-color: white;
-                text-align: center;
-                padding: 15px 0;
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-        }
-
+    /* container page */
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -345,7 +274,7 @@ if (empty($imagens_imovel)) {
             padding: 20px;
         }
 
-        /* carrossel */
+    /* carrossel */
         .carousel-box {
             flex: 1 1 60%;
             min-width: 300px;
@@ -358,7 +287,7 @@ if (empty($imagens_imovel)) {
             border-radius: 10px;
         }
 
-        /* informações principais */
+    /* informações principais */
         .main-info {
             flex: 1 1 60%;
             background: white;
@@ -371,6 +300,7 @@ if (empty($imagens_imovel)) {
             color: #1d4ed8;
             font-size: 28px;
             margin-bottom: 10px;
+            font-weight: 800;
         }
 
         .main-info p {
@@ -405,7 +335,7 @@ if (empty($imagens_imovel)) {
             color: #495057;
         }
 
-        /* formulário lateral */
+    /* formulário lateral */
         .form-box {
             flex: 1 1 30%;
             background: white;
@@ -445,7 +375,7 @@ if (empty($imagens_imovel)) {
             text-decoration: none;
         }
 
-      /* footer */
+    /* footer */
     .footer {
       background: #010d2dff;
       color:rgb(240, 240, 240);

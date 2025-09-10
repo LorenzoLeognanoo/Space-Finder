@@ -64,6 +64,9 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
   <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -228,7 +231,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
               
               <div class="conteudo-cards">
                 <div class="preco-cards">
-                  R$ <?php echo number_format($row['valor'], 2, ',', '.'); ?><span class="periodo">/mês</span>
+                  R$ <?php echo number_format($row['valor'], 2, ',', '.'); ?><span class="periodo"></span>
                 </div>
                 
                 <h3 class="titulo-cards">
@@ -331,8 +334,61 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
     }
   </script>
   <style>
+  
+ /* hero page */
+   .card-principal{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 40px;
+  }
+
+  .titulo-principal {
+  justify-content: center;
+  display: flex;
+  font-weight: 900;
+  font-size: 60px;
+  color: #153eb5;
+  margin-top: 30px;
+  }
+
+  .subtitulo-principal{
+  justify-content: center;
+  display: flex;
+  margin-top: 15px;
+  }
+
+  /*caixa de pesquisa*/ 
+  .search-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .search-box input {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    flex: 1;
+    font-size: 1rem;
+  }
+
+  .search-box button {
+    padding: 15px 25px;
+    background-color: #1d4ed8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .search-box button:hover {
+    background-color: #153eb5;
+  }
+ 
     
-/* seção filtros */
+  /* seção filtros */
     .secao-filtros {
       padding: 25px 30px;
     }
@@ -438,7 +494,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
     }
 
     
-    /* resultado busca */
+ /* resultado busca */
     .secao-resultados {
       padding: 40px 30px;
     }
@@ -459,7 +515,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       margin: 0 auto;
     }
 
-    /* cards */
+/* cards */
     .cards-imovel {
       background: white;
       border-radius: 10px;
@@ -506,7 +562,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
 
     .preco-cards {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 800;
       color: #1d4ed8;
       margin-bottom: 10px;
     }
@@ -587,78 +643,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       color: #6c757d;
     }
 
-      /* footer */
-    .footer {
-      background:#001f72ff;
-      color:rgb(240, 240, 240);
-    }
 
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem 1rem;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 3rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .footer-subtitle {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .footer-text {
-      margin-bottom: 1.5rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: #001f72ff;
-      color: #b4b9c1ff;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1px solid #1e40af;  
-    }
-
-    .social-link:hover {
-      background: #3061ffff;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .contact-item {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-bottom {
-      padding-top: 2rem;
-      border-top: 1px solid #fafbff49;
-      text-align: center;
-      color: #fafbff9e;
-    }
 
 </body>
 </html>
