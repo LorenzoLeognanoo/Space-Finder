@@ -1,5 +1,5 @@
 <?php
-// conexao com o banco de dados
+// conexão com o banco de dados
 $conn = new mysqli("localhost", "root", "", "spacefinder");
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
@@ -70,7 +70,7 @@ if ($busca) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Space Finder</title>
+  <title>Space Finder - Viva sua Conquista!</title>
   <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,6 +79,7 @@ if ($busca) {
 </head>
 
 <body>
+  <!-- navbar -->
   <nav class="navbar">
     <div class="logo-container">
       <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
@@ -99,10 +100,11 @@ if ($busca) {
     </div>
   </nav>
 
-  <section class="hero-section">
-    <div class="hero-container">
-      <h1 class="hero-titulo">Encontre seu espaço ideal</h1>
-      <p class="hero-subtitulo">Alugue ou compre imóveis de forma fácil, rápida e segura com a  <strong class="space-negrito"> SPACE FINDER</strong>.</p>
+      <!-- topo page -->
+  <section class="secao-topo">
+    <div class="topo-container">
+      <h1 class="topo-titulo">Encontre seu espaço ideal</h1>
+      <p class="topo-subtitulo">Alugue ou compre imóveis de forma fácil, rápida e segura com a  <strong class="space-negrito"> SPACE FINDER</strong>.</p>
 
       <form class="search-container" method="GET" action="index.php">
         <div class="search-box">
@@ -121,10 +123,11 @@ if ($busca) {
         <a href="comprar.php" class="link-rapido">Imóveis para Comprar</a>
       </div>
     </div>
-    <div class="hero-fundo"></div>
+    <div class="topo-fundo"></div>
   </section>
 
-  <section class="cards-destaque-body">
+     <!-- cards destaques -->
+  <section class="cards-destaque">
     <div class="container">
       <div class="topo-cards">
         <h2 class="titulo-cardss">
@@ -142,6 +145,7 @@ if ($busca) {
         <?php endif; ?>
       </div>
 
+      
       <div class="grade-cards">
         <?php if (!empty($imoveis_encontrados)): ?>
           <?php foreach ($imoveis_encontrados as $row): ?>
@@ -220,6 +224,7 @@ if ($busca) {
           <?php endforeach; ?>
         <?php else: ?>
           
+          <!-- busca sem resultado -->
           <div class="sem-resultado">
             <div class="sem-resultado-content">
               <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="sem-resultado-icon">
@@ -247,6 +252,7 @@ if ($busca) {
     </div>
   </section>
 
+  <!-- footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
@@ -285,26 +291,27 @@ if ($busca) {
       </div>
     </div>
   </footer>
+  </body>
+  </html>
 
   <script src="script.js"></script>
   <script>
-    // função para redirecionar para detalhes do imóvel
+    // redirecionar para o imóvel
     function verDetalhes(id, tipo) {
         window.location.href = `imovel-detalhes.php?id=${id}&tipo=${tipo}`;
     }
   </script>
 
   <style>  
-
-  /* hero section */
-      .hero-section {
+  /* topo page */
+      .secao-topo {
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       padding: 8rem 2rem 4rem;
       position: relative;
       overflow: hidden;
       }
 
-      .hero-fundo {
+      .topo-fundo {
       position: absolute;
       top: -50%;
       right: -20%;
@@ -316,7 +323,7 @@ if ($busca) {
       transform: rotate(15deg);
     }
 
-      .hero-container {
+      .topo-container {
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
@@ -324,7 +331,7 @@ if ($busca) {
       z-index: 2;
     }
 
-      .hero-titulo {
+      .topo-titulo {
       font-size: 3.5rem;
       font-weight: 700;
       color: #1e40af;
@@ -338,7 +345,7 @@ if ($busca) {
       font-weight: 800; 
     }
 
-    .hero-subtitulo {
+    .topo-subtitulo {
       font-size: 1.25rem;
       color: #64748b;
       margin-bottom: 3rem;
@@ -347,7 +354,7 @@ if ($busca) {
       margin-right: auto;
     }
 
-       /* barra de pesquisa */
+  /* barra de pesquisa */
     .search-container {
       max-width: 600px;
       margin: 0 auto;
@@ -430,7 +437,7 @@ if ($busca) {
 
   
   /* cards destaque */
-    .cards-destaque-body {
+    .cards-destaque {
       padding: 5rem 2rem;
       background: #f8fafc;
     }
@@ -622,8 +629,6 @@ if ($busca) {
     }
 
 </style>
-</body>
-</html>
 
 <?php
 $conn->close();

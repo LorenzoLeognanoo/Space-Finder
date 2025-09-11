@@ -1,28 +1,28 @@
 <?php
-//conexão com o banco de dados
+// conexão com o banco de dados
 $conn = new mysqli("localhost", "root", "", "spacefinder");
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
   
-//recebe os parâmetros de busca e filtros
+// recebe os parâmetros de busca e filtros
 $busca = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 $bairro = isset($_GET['bairro']) ? $conn->real_escape_string($_GET['bairro']) : '';
 $tipo = isset($_GET['tipo']) ? $conn->real_escape_string($_GET['tipo']) : '';
 $comodos = isset($_GET['num_comodos']) ? intval($_GET['num_comodos']) : '';
 $faixa_preco = isset($_GET['faixa_preco']) ? $_GET['faixa_preco'] : '';
 
-//monta a consulta SQL
+// monta a consulta SQL
 $sql = "SELECT * FROM imoveis_comprar WHERE 1=1";
 
-//aplica busca geral 
+// aplica busca geral 
 if ($busca) {
     $sql .= " AND (bairro LIKE '%$busca%' 
              OR rua LIKE '%$busca%' 
              OR tipo LIKE '%$busca%')";
 }
 
-//aplica filtros específicos
+// aplica filtros específicos
 if ($bairro) {
     $sql .= " AND bairro LIKE '%$bairro%'";
 }
@@ -44,12 +44,12 @@ if ($faixa_preco) {
     }
 }
 
-//limita para 15 resultados
+// limita para 15 resultados
 $sql .= " LIMIT 15";
 
 $result = $conn->query($sql);
 
-//busca dados para os filtros 
+// busca dados para os filtros 
 $bairros_result = $conn->query("SELECT DISTINCT bairro FROM imoveis_comprar WHERE bairro != '' ORDER BY bairro");
 $tipos_result = $conn->query("SELECT DISTINCT tipo FROM imoveis_comprar WHERE tipo != '' ORDER BY tipo");
 $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar WHERE num_comodos > 0 ORDER BY num_comodos");
@@ -90,13 +90,13 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
     </div>
   </nav>
 
-  <!--seção principal site -->
+  <!-- seção principal site -->
   <section class="card-principal">
     <div>
       <h1 class="titulo-principal">COMPRE SEU IMÓVEL</h1>
       <p class="subtitulo-principal">Compre imóveis de forma fácil, rápida e segura com a SpaceFinder.</p>
 
-      <!--barra de pesquisa principal site-->
+      <!-- barra de pesquisa principal site -->
       <form class="search-box" method="GET" action="comprar.php">
         <input type="text" name="q" placeholder="Digite uma localização ou tipo de imóvel..." value="<?php echo htmlspecialchars($busca); ?>" />
         <button type="submit">Buscar</button>
@@ -104,17 +104,17 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
     </div>
   </section>
 
-  <!--seção filtros-->
+  <!-- seção filtros -->
   <section class="secao-filtros">
     <div class="container">
-      <div class="cartao-filtros">
+      <div class="cards-filtros">
         <form class="formulario-filtros" method="GET" action="comprar.php">
 
-          <!--mantém a busca principal -->
+          <!-- mantém a busca principal -->
           <input type="hidden" name="q" value="<?php echo htmlspecialchars($busca); ?>">
           <div class="grade-filtros">
 
-            <!--filtro bairro-->
+            <!-- filtro bairro -->
             <div class="grupo-filtro">
               <label for="bairro">
                 <i class="fas fa-map-marker-alt"></i>
@@ -133,7 +133,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
               </select>
             </div>
 
-            <!--filtro tipo de imóvel-->
+            <!-- filtro tipo de imóvel -->
             <div class="grupo-filtro">
               <label for="tipo">
                 <i class="fas fa-home"></i>
@@ -152,7 +152,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
               </select>
             </div>
 
-            <!--filtro cômodos-->
+            <!-- filtro cômodos -->
             <div class="grupo-filtro">
               <label for="num_comodos">
                 <i class="fas fa-bed"></i>
@@ -171,7 +171,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
               </select>
             </div>
 
-            <!--filtro faixa de preço-->
+            <!-- filtro faixa de preço -->
             <div class="grupo-filtro">
               <label for="faixa_preco">
                 <i class="fas fa-dollar-sign"></i>
@@ -188,7 +188,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
               </select>
             </div>
 
-            <!--botões filtro-->
+            <!-- botões filtro -->
             <div class="acoes-filtros">
               <button type="submit" class="botao-filtrar">
                 <i class="fas fa-search"></i>
@@ -205,7 +205,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
     </div>
   </section>
 
-  <!--resultados busca-->
+  <!-- resultados busca -->
   <section class="secao-resultados">
     <div class="container">
       <h2>
@@ -218,7 +218,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
         ?>
       </h2>
       
-        <!--cards comprar-->
+        <!-- cards comprar -->
         <?php if ($result && $result->num_rows > 0): ?>
         <div class="grade-resultados">
           <?php while($row = $result->fetch_assoc()): ?>
@@ -288,7 +288,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
     </div>
   </section>
 
-  <!--footer-->
+  <!-- footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
@@ -327,16 +327,18 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       </div>
     </div>
   </footer>
+  </body>
+  </html>
 
   <script>
     function verDetalhes(id) {
         window.location.href = `imovel-detalhes.php?id=${id}&tipo=comprar`;
     }
   </script>
+
   <style>
-  
- /* hero page */
-   .card-principal{
+  /* topo page */
+  .card-principal{
   justify-content: center;
   align-items: center;
   display: flex;
@@ -393,7 +395,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       padding: 25px 30px;
     }
 
-    .cartao-filtros {
+    .cards-filtros {
       background: white;
       border-radius: 10px;
       padding: 20px;
@@ -494,7 +496,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
     }
 
     
- /* resultado busca */
+  /* resultado busca */
     .secao-resultados {
       padding: 40px 30px;
     }
@@ -515,7 +517,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       margin: 0 auto;
     }
 
-/* cards */
+  /* cards */
     .cards-imovel {
       background: white;
       border-radius: 10px;
@@ -635,18 +637,14 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_comprar
       background: #1e40af;
     }
 
-
-/* busca sem resultados */
+  /* busca sem resultados */
     .sem-resultados {
       text-align: center;
       padding: 60px 30px;
       color: #6c757d;
     }
+</style>
 
-
-
-</body>
-</html>
 
 <?php
 $conn->close();

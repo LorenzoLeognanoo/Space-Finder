@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Space</title>
+  <title>Space Finder - Sobre Nós</title>
   <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <!-- navbar -->
  <nav class="navbar">
     <div class="logo-container">
       <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
@@ -35,6 +36,7 @@
 
 </body>
 
+<!-- container principal -->
 <div class="container" >
   <h1 class="titulo">QUEM SOMOS</h1>
     <p class="subtitulo">A Space Finder nasceu com o propósito de transformar a busca pelo imóvel ideal em uma experiência simples, segura e inovadora.
@@ -67,7 +69,7 @@
       </div>
 </div>
 
-
+<!-- footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
@@ -109,14 +111,15 @@
 </html>
 
 <style>
-.container {
+/* container principal */
+ .container {
   max-width: 800px;
   margin: 10px auto;
   padding: 0 10px;
   text-align: center;
-}
+ }
 
-.titulo{
+ .titulo{
   background-color: #1d3682; 
   color: white;              
   padding: 40px 100px;      
@@ -124,45 +127,45 @@
   font-weight: 900;         
   font-size: 50px;          
   margin-top: 40px;         
-}
+ }
 
-.subtitulo{
+ .subtitulo{
   margin-top: 30px;
   font-size: 20px;
   margin-bottom: 60px;
-}
+ }
 
-.sub-texto {
+ .sub-texto {
   color: #1d3682;
   font-size: 24 px;
   font-weight: bold;
   margin-top: 30px;
   margin-bottom: 20px;
-}
+ }
 
-.sub-legenda {
+ .sub-legenda {
   font-size: 18px;
   margin-bottom: 15px;
 
-}
+ }
 
-.lista {
+ .lista {
     font-size: 18px;
     list-style: none;
     margin-bottom: 80px;
     text-align: left;
   max-width: 700px;
-}
+ }
 
-.lista li {
+ .lista li {
     margin-bottom: 20px;
   line-height: 1.5;
-}
+ }
 
-.assinatura {
+ .assinatura {
   font-size: 20px;
   font-weight: bold;
   color: #1d3682;
   margin-bottom: 130px;
-}
+ }
 </style>

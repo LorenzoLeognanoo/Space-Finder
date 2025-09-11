@@ -1,27 +1,27 @@
 <?php 
-//conexao com o banco de dados
+// conexao com o banco de dados
 $conn = new mysqli("localhost", "root", "", "spacefinder");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }   
 
-//recebe os parâmetros
+// recebe os parâmetros
 $id_imovel = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $tipo_transacao = isset($_GET['tipo']) ? $_GET['tipo'] : '';
 
-//valida os paremetros 
+// valida os paremetros 
 if ($id_imovel <= 0 || !in_array($tipo_transacao, ['alugar', 'comprar'])) {
     header("Location: index.php.");
     exit;
 }
 
-//determina a tabela e texto baseado no tipo
+// determina a tabela e texto baseado no tipo
 $tabela = $tipo_transacao === 'alugar' ? 'imoveis_alugar' : 'imoveis_comprar';
 $titulo_pagina = ($tipo_transacao === 'alugar')? 'Aluguel' : 'Compra';
 $texto_acao = ($tipo_transacao === 'alugar')? 'ALUGAR' : 'COMPRAR';
 $periodo_preco = ($tipo_transacao === 'alugar')? '/mês' : '';
 
-//busca os dados do imovel
+// busca os dados do imovel
 $sql = "SELECT * FROM $tabela WHERE id_casa = $id_imovel";
 $result = $conn->query($sql);
 if (!$result || $result->num_rows == 0) {
@@ -30,11 +30,11 @@ if (!$result || $result->num_rows == 0) {
 }
 $imovel = $result->fetch_assoc();
 
-//array de imagens baseado no ID do imóvel e tipo
+// array de imagens baseado no ID do imóvel e tipo
 $tipo_pasta = strtolower($imovel['tipo']) == 'apartamento' ? 'apartamento' : 'casa';
 $pasta_imovel = "imgs/home/" . $tipo_pasta . " " . $id_imovel . "/";
 
-clearstatcache(); //limpa cache do PHP
+clearstatcache(); // limpa cache do PHP
 
 $imagens_disponiveis = [
     "varanda.jpg",
@@ -71,26 +71,26 @@ $imagens_disponiveis = [
 
 $imagens_imovel = [];
 
-//verifica se a pasta existe 
+// verifica se a pasta existe 
 if (is_dir($pasta_imovel)) {
     foreach($imagens_disponiveis as $imagem) {
         $caminho_completo = realpath($pasta_imovel . $imagem);
         if ($caminho_completo && file_exists($caminho_completo)) {
-            //limpar cache navegador para nao bugar
+            // limpar cache navegador para nao bugar
             $imagens_imovel[] = $pasta_imovel . $imagem . "?v=" . filemtime($caminho_completo);
         }
     }
 }
 
-//se não encontrar imagens OU a pasta não existir, usa foto padrão
+// se não encontrar imagens OU a pasta não existir, usa foto padrão
 if (empty($imagens_imovel)) {
 
-    //verifica se a foto padrão existe
+    // verifica se a foto padrão existe
     if (file_exists($imovel['foto'])) {
         $imagens_imovel = [$imovel['foto'] . "?v=" . filemtime($imovel['foto'])];
     } else {
 
-        //se a foto padrão nao existe, usa placeholder
+        // se a foto padrão nao existe, usa placeholder
         $imagens_imovel = ["imgs/placeholder.jpg"];
     }
 }
@@ -112,6 +112,7 @@ if (empty($imagens_imovel)) {
 </head>
 
 <body>
+    <!-- navbar -->
     <nav class="navbar">
         <div class="logo-container">
             <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
@@ -154,13 +155,13 @@ if (empty($imagens_imovel)) {
         <!-- informações principais -->
         <div class="main-info">
             <h2>R$ <?php echo number_format($imovel['valor'], 2, ',', '.'); ?><?php echo $periodo_preco; ?></h2>
-            <p><?php echo number_format($imovel['area'], 0, ',', '.'); ?>m² • <?php echo intval($imovel['num_comodos']); ?> cômodos • <?php echo htmlspecialchars($imovel['tipo']); ?></p>
+            <p><?php echo number_format($imovel['area'], 0, ',', '.'); ?>m² • <?php echo intval($imovel['num_comodos']); ?> cômodos • <?php echo intval($imovel['banheiro']); ?> Banheiros • <?php echo intval($imovel['quarto']); ?> Quartos  </p>
             <p class="local"><?php echo htmlspecialchars($imovel['bairro']); ?><?php if(!empty($imovel['rua'])): ?> - <?php echo htmlspecialchars($imovel['rua']); ?><?php endif; ?>, Araraquara - SP</p>
             
             <div class="titulo-info">
                 <h1><?php echo htmlspecialchars($imovel['titulo_casa']); ?></h1>
                 <ul>
-                    <li>Tipo: <?php echo htmlspecialchars($imovel['tipo']); ?></li>
+                    <li><?php echo htmlspecialchars($imovel['tipo']); ?></li>
                     <li>Área: <?php echo number_format($imovel['area'], 0, ',', '.'); ?>m²</li>
                     <li>Cômodos: <?php echo intval($imovel['num_comodos']); ?></li>
                     <li>Bairro: <?php echo htmlspecialchars($imovel['bairro']); ?></li>
@@ -172,7 +173,7 @@ if (empty($imagens_imovel)) {
                     <?php endif; ?>
                     
                     <?php if ($tipo_transacao == 'alugar'): ?>
-                    <li>Disponível para locação</li>
+                    <li>Disponível para alugar</li>
                     <li>Contrato de locação</li>
                     <?php else: ?>
                     <li>Disponível para venda</li>
@@ -239,7 +240,10 @@ if (empty($imagens_imovel)) {
       </div>
     </div>
   </footer>
+  </body>
+  </html> 
 
+   <!-- carrosel destaques -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         function verDetalhes(id, tipo) {
@@ -376,48 +380,48 @@ if (empty($imagens_imovel)) {
         }
 
     /* footer */
-    .footer {
+     .footer {
       background: #010d2dff;
       color:rgb(240, 240, 240);
-    }
+     }
 
-    .footer-container {
+     .footer-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 3rem 2rem 1rem;
-    }
+     }
 
-    .footer-content {
+     .footer-content {
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 3rem;
       margin-bottom: 2rem;
-    }
+     }
 
-    .footer-title {
+     .footer-title {
       font-size: 1.5rem;
       font-weight: 700;
       color: white;
       margin-bottom: 1rem;
-    }
+     }
 
-    .footer-subtitle {
+     .footer-subtitle {
       font-size: 1.125rem;
       font-weight: 600;
       color: white;
       margin-bottom: 1rem;
-    }
+     }
 
-    .footer-text {
+     .footer-text {
       margin-bottom: 1.5rem;
-    }
+     }
 
-    .social-links {
+     .social-links {
       display: flex;
       gap: 1rem;
-    }
+     }
 
-    .social-link {
+     .social-link {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -429,52 +433,26 @@ if (empty($imagens_imovel)) {
       text-decoration: none;
       transition: all 0.2s ease;
       border: 1px solid #1e40af;  
-    }
+     }
 
-    .social-link:hover {
+     .social-link:hover {
       background: #3061ffff;
       color: white;
       transform: translateY(-2px);
-    }
+     }
 
-    .contact-item {
+     .contact-item {
       margin-bottom: 0.5rem;
-    }
+     }
 
-    .footer-bottom {
+     .footer-bottom {
       padding-top: 2rem;
       border-top: 1px solid #fafbff49;
       text-align: center;
       color: #fafbff9e;
-    }
+     }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .carousel-box, .main-info, .form-box {
-                flex: 1 1 100%;
-            }
-
-            .swiper-slide img {
-                height: 300px;
-            }
-
-            .main-info h2 {
-                font-size: 24px;
-            }
-
-            .footer-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
     </style>
-</body>
-</html>
 
 <?php
 $conn->close();

@@ -1,28 +1,28 @@
 <?php
-//conexão com o banco de dados
+// conexão com o banco de dados
 $conn = new mysqli("localhost", "root", "", "spacefinder");
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
   
-//recebe os parâmetros de busca e filtros
+// recebe os parâmetros de busca e filtros
 $busca = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 $bairro = isset($_GET['bairro']) ? $conn->real_escape_string($_GET['bairro']) : '';
 $tipo = isset($_GET['tipo']) ? $conn->real_escape_string($_GET['tipo']) : '';
 $comodos = isset($_GET['num_comodos']) ? intval($_GET['num_comodos']) : '';
 $faixa_preco = isset($_GET['faixa_preco']) ? $_GET['faixa_preco'] : '';
 
-//monta a busca SQL 
+// monta a busca SQL 
 $sql = "SELECT * FROM imoveis_alugar WHERE 1=1";
 
-//aplica busca geral 
+// aplica busca geral 
 if ($busca) {
     $sql .= " AND (bairro LIKE '%$busca%' 
              OR rua LIKE '%$busca%' 
              OR tipo LIKE '%$busca%')";
 }
 
-//aplica filtros específicos
+// aplica filtros específicos
 if ($bairro) {
     $sql .= " AND bairro LIKE '%$bairro%'";
 }
@@ -44,12 +44,12 @@ if ($faixa_preco) {
     }
 }
 
-//limita para 15 resultados
+// limita para 15 resultados
 $sql .= " LIMIT 15";
 
 $result = $conn->query($sql);
 
-//busca dados para os filtros 
+// busca dados para os filtros 
 $bairros_result = $conn->query("SELECT DISTINCT bairro FROM imoveis_alugar WHERE bairro != '' ORDER BY bairro");
 $tipos_result = $conn->query("SELECT DISTINCT tipo FROM imoveis_alugar WHERE tipo != '' ORDER BY tipo");
 $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar WHERE num_comodos > 0 ORDER BY num_comodos");
@@ -90,13 +90,13 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
     </div>
   </nav>
 
-  <!--seção principal site -->
+  <!-- seção principal site -->
   <section class="card-principal">
     <div>
       <h1 class="titulo-principal">ALUGUE SEU IMÓVEL</h1>
       <p class="subtitulo-principal">Alugue imóveis de forma fácil, rápida e segura com a SpaceFinder.</p>
 
-      <!--barra de pesquisa principal site-->
+      <!-- barra de pesquisa principal site -->
       <form class="search-box" method="GET" action="alugar.php">
         <input type="text" name="q" placeholder="Digite uma localização ou tipo de imóvel..." value="<?php echo htmlspecialchars($busca); ?>" />
         <button type="submit">Buscar</button>
@@ -104,17 +104,17 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
     </div>
   </section>
 
-  <!--seção filtros-->
+  <!-- seção filtros -->
   <section class="secao-filtros">
     <div class="container">
       <div class="cards-filtros">
         <form class="formulario-filtros" method="GET" action="alugar.php">
 
-          <!--mantém a busca principal -->
+          <!-- mantém a busca principal -->
           <input type="hidden" name="q" value="<?php echo htmlspecialchars($busca); ?>">
           <div class="grade-filtros">
 
-            <!--filtro bairro-->
+            <!-- filtro bairro -->
             <div class="grupo-filtro">
               <label for="bairro">
                 <i class="fas fa-map-marker-alt"></i>
@@ -133,7 +133,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
               </select>
             </div>
 
-            <!--filtro tipo de imóvel-->
+            <!-- filtro tipo de imóvel -->
             <div class="grupo-filtro">
               <label for="tipo">
                 <i class="fas fa-home"></i>
@@ -152,7 +152,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
               </select>
             </div>
 
-            <!--filtro cômodos-->
+            <!-- filtro cômodos -->
             <div class="grupo-filtro">
               <label for="num_comodos">
                 <i class="fas fa-bed"></i>
@@ -171,7 +171,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
               </select>
             </div>
 
-            <!--filtro faixa de preço-->
+            <!-- filtro faixa de preço -->
             <div class="grupo-filtro">
               <label for="faixa_preco">
                 <i class="fas fa-dollar-sign"></i>
@@ -188,7 +188,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
               </select>
             </div>
 
-            <!--botões filtro-->
+            <!-- botões filtro -->
             <div class="acoes-filtros">
               <button type="submit" class="botao-filtrar">
                 <i class="fas fa-search"></i>
@@ -205,7 +205,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
     </div>
   </section>
 
-  <!--resultados busca-->
+  <!-- resultados busca -->
   <section class="secao-resultados">
     <div class="container">
       <h2>
@@ -218,7 +218,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
         ?>
       </h2>
       
-        <!--cards alugar-->
+        <!-- cards alugar -->
       <?php if ($result && $result->num_rows > 0): ?>
         <div class="grade-resultados">
           <?php while($row = $result->fetch_assoc()): ?>
@@ -288,7 +288,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
     </div>
   </section>
 
-  <!--footer-->
+  <!-- footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
@@ -327,6 +327,8 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       </div>
     </div>
   </footer>
+  </body>
+  </html>
 
   <script>
     function verDetalhes(id) {
@@ -335,9 +337,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
   </script>
 
   <style>
-
-
-  /* hero page */
+  /* topo page */
  .card-principal {
   justify-content: center;
   align-items: center;
@@ -645,11 +645,8 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       padding: 60px 30px;
       color: #6c757d;
     }
+  </style>
 
-
-
-</body>
-</html>
 
 <?php
 $conn->close();

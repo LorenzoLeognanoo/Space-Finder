@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Space</title>
+  <title>Space Finder - Contate Nos</title>
   <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <!-- navbar -->
  <nav class="navbar">
     <div class="logo-container">
       <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
@@ -42,6 +43,7 @@
     </p>
 <br><br>
 
+    <!-- formulário -->
     <div class="form-container">
       <form class="formulario">
         <label for="nome">Envie nos uma mensagem!</label>
@@ -68,6 +70,7 @@
     </div>
   </section><br><br>
 
+    <!-- footer -->
    <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
@@ -106,33 +109,34 @@
       </div>
     </div>
   </footer>
-
 </body>
 </html>
-<style>
 
+<style>
+  /* corpo site */
   body {
   margin: 0;
   background-color: #ffffff;
   font-family: 'Inter', sans-serif;
   color: #333;
-}
+ }
 
-.container {
+  /* topo page */
+ .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-}
+  }
 
-.titulo {
+ .titulo {
   max-width: 900px;
   margin: 10px auto;
   padding: 0 10px;
   text-align: center;
-}
+  }
 
-.titulo h1 {
+ .titulo h1 {
   background-color: #1d3682; 
   color: white;              
   padding: 40px 100px;      
@@ -140,47 +144,48 @@
   font-weight: 900;         
   font-size: 50px;          
   margin-top: 40px;      
-}
+ }
 
-.subtitulo {
+ .subtitulo {
   font-size: 20px;
   margin-bottom: 30px;
   padding: 0 10px;
-}
+  }
 
-.form-container {
+  /* formulário */
+ .form-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 60px;
-}
+ }
 
-.formulario {
+ .formulario {
   flex: 1;
   min-width: 300px;
   display: flex;
   flex-direction: column;
   text-align: left;
-}
+ }
 
-.formulario label {
+ .formulario label {
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 10px;
   color: #1f3e8a;
-}
+ }
 
-.formulario input,
-.formulario textarea {
+  .formulario input,
+  .formulario textarea {
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
   font-size: 14px;
-}
+  }
 
-.formulario textarea {
+  .formulario textarea {
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -188,10 +193,9 @@
   resize: none;
   font-size: 14px;
    height: 130px;
-}
+  }
 
-
-.formulario button {
+  .formulario button {
   background-color: #1f3e8a;
   color: white;
   padding: 15px 15px;
@@ -201,37 +205,39 @@
   transition: background-color 0.3s;
   font-size: 15px;
   font-weight: 600; 
-}
+  }
 
-.formulario button:hover {
+  .formulario button:hover {
   background-color: #163173;
-}
+  }
 
-.contato {
+  /* contato space */
+  .contato {
   flex: 1;
   min-width: 250px;
   text-align: left;
-}
+  }
 
-.contato h3 {
+  .contato h3 {
   color: #1f3e8a;
   margin-bottom: 15px;
   font-size: 25px;
-}
+  }
 
-.contato a:hover {
+  .contato a:hover {
   text-decoration: underline;
-}
-.telefone {
+  }
+  .telefone {
     color:  #1d3682     ;
-}
+  }
 
-.contato a {    
+  .contato a {    
   text-decoration: none;
-}
+  }
 
 
-.whatsapp-button {
+  /* botao whatssap */
+ .whatsapp-button {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -243,11 +249,11 @@
   font-weight: bold;
   margin-top: 10px;
   transition: background-color 0.3s;
-}
+ }
 
-.whatsapp-button:hover {
+ .whatsapp-button:hover {
   background-color: #1ebe5d;
   text-decoration: none;
-}
+ }
 
-        </style>
+</style>
