@@ -41,34 +41,34 @@
     <p class="subtitulo">
       Tem alguma pergunta ou quer falar conosco? Preencha o formulário abaixo ou entre em contato pelos nossos canais de atendimento.
     </p>
-<br><br>
 
-    <!-- formulário -->
-    <div class="form-container">
-      <form class="formulario">
-        <label for="nome">Envie nos uma mensagem!</label>
-        <input type="text" id="nome" placeholder="Nome" required>
-
-        <input type="email" id="email" placeholder="E-mail" required>
-
-        <textarea id="mensagem" placeholder="Mensagem" required></textarea>
-
-        <button type="submit">Enviar</button>
-      </form>
-
-      <div class="contato">
+    <!-- card de contato -->
+    <div class="contato">
         <h3>Entre em contato</h3>
-        <p> <a img href="mailto:spacefinder@space.com.br"> spacefinder@space.com.br</a></p><br>
-        <p class="telefone"> (16) 3333-0005</p><br>
-        <p> <a href="https://maps.google.com/?q=Av.+Bandeirantes,+503,+Araraquara" target="_blank">
-          Av. Bandeirantes, 503 - Centro, Araraquara - SP, 14801-180
-        </a></p><br>
+        
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:spacefinder@space.com.br">spacefinder@space.com.br</a>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <p class="telefone">(16) 3333-0005</p>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="https://maps.google.com/?q=Av.+Bandeirantes,+503,+Araraquara" target="_blank">
+                Av. Bandeirantes, 503 - Centro, Araraquara - SP, 14801-180
+            </a>
+        </div>
+
         <a href="https://api.whatsapp.com/send?phone=5516933005886&text=Ola%2C%20eu%20quero%20falar%20com%20o%20suporte%20da%20Space%20Finder!%20%E2%98%9D%EF%B8%8F%F0%9F%98%8E" target="_blank" class="whatsapp-button">
-       <i class="fab fa-whatsapp"></i> WhatsApp
-</a>
-      </div>
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
     </div>
-  </section><br><br>
+       
+  </section>
 
     <!-- footer -->
    <footer class="footer">
@@ -100,7 +100,7 @@
           <h4 class="footer-subtitle">Contato</h4>
           <p class="contact-item">spacefinder@space.com.br</p>
           <p class="contact-item">(16) 3333-0005</p>
-          <p class="contact-item">Av. Bandeirantes, 505<br>Centro, Araraquara - SP<br>14801-120</p>
+          <p class="contact-item">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
         </div>
       </div>
       
@@ -152,108 +152,90 @@
   padding: 0 10px;
   }
 
-  /* formulário */
- .form-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 60px;
- }
-
- .formulario {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
- }
-
- .formulario label {
-  font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #1f3e8a;
- }
-
-  .formulario input,
-  .formulario textarea {
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: none;
-  font-size: 14px;
-  }
-
-  .formulario textarea {
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: none;
-  font-size: 14px;
-   height: 130px;
-  }
-
-  .formulario button {
-  background-color: #1f3e8a;
-  color: white;
-  padding: 15px 15px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 15px;
-  font-weight: 600; 
-  }
-
-  .formulario button:hover {
-  background-color: #163173;
-  }
-
-  /* contato space */
+  /* contato space - NOVO CARD */
   .contato {
-  flex: 1;
-  min-width: 250px;
-  text-align: left;
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+    margin: 20px auto;
   }
 
   .contato h3 {
-  color: #1f3e8a;
-  margin-bottom: 15px;
-  font-size: 25px;
+    color: #1f3e8a;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 12px 0;
+  }
+
+  .contact-item i {
+    color: #1f3e8a;
+    width: 25px;
+    font-size: 18px;
+    margin-right: 15px;
+    text-align: center;
+  }
+
+  .contato a {
+    color: #1d3682;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1.4;
   }
 
   .contato a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+    color: #1f3e8a;
   }
+
   .telefone {
-    color:  #1d3682     ;
+    color: #1d3682;
+    font-size: 16px;
+    margin: 0;
   }
 
-  .contato a {    
-  text-decoration: none;
+  /* botao whatsapp */
+  .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25d366;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #128c7e;
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .whatsapp-button i {
+    margin-right: 8px;
+    color: white !important;
+    width: auto;
   }
 
 
-  /* botao whatssap */
- .whatsapp-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #25D366;
-  color: white;
-  padding: 15px 70px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: background-color 0.3s;
- }
-
- .whatsapp-button:hover {
-  background-color: #1ebe5d;
-  text-decoration: none;
- }
 
 </style>

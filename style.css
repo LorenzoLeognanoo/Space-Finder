@@ -103,6 +103,22 @@
   }
 }
 
+@media (max-width: 480px) {
+  .titulo h1 {
+    font-size: 35px;
+    padding: 30px 50px;
+  }
+  
+  .contato {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .contato h3 {
+    font-size: 24px;
+  }
+}
+
     /* footer */
     .footer {
       background:#001f72ff;

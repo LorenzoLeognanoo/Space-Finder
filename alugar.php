@@ -318,7 +318,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
           <h4 class="footer-subtitle">Contato</h4>
           <p class="contact-item">spacefinder@space.com.br</p>
           <p class="contact-item">(16) 3333-0005</p>
-          <p class="contact-item">Av. Bandeirantes, 505<br>Centro, Araraquara - SP<br>14801-120</p>
+          <p class="contact-item">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
         </div>
       </div>
       
