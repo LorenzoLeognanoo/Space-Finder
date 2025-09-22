@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
+ 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,74 +9,87 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&a… rel="stylesheet">
 </head>
-
+ 
 <body>
     <!-- navbar -->
- <nav class="navbar">
-    <div class="logo-container">
-      <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
-    </div>
-
-    <ul class="nav-links">
-      <li><a href="index.php">Início</a></li>
-      <li><a href="alugar.php">Alugar</a></li>
-      <li><a href="comprar.php">Comprar</a></li>
-      <li><a href="sobre.php" >Sobre Nós</a></li>
-      <li><a href="contato.php" class="active">Contato</a></li>
-    </ul>
-
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-<section class="container">
-    <div class="titulo">
-      <h1>CONTATE - NOS</h1>
-    </div>
-    <p class="subtitulo">
-      Tem alguma pergunta ou quer falar conosco? Preencha o formulário abaixo ou entre em contato pelos nossos canais de atendimento.
-    </p>
-
-    <!-- card de contato -->
-    <div class="contato">
-        <h3>Entre em contato</h3>
-        
-        <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:spacefinder@space.com.br">spacefinder@space.com.br</a>
-        </div>
-
-        <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <p class="telefone">(16) 3333-0005</p>
-        </div>
-
-        <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <a href="https://maps.google.com/?q=Av.+Bandeirantes,+503,+Araraquara" target="_blank">
-                Av. Bandeirantes, 503 - Centro, Araraquara - SP, 14801-180
-            </a>
-        </div>
-
-        <a href="https://api.whatsapp.com/send?phone=5516933005886&text=Ola%2C%20eu%20quero%20falar%20com%20o%20suporte%20da%20Space%20Finder!%20%E2%98%9D%EF%B8%8F%F0%9F%98%8E" target="_blank" class="whatsapp-button">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-    </div>
+    <nav class="navbar">
+      <div class="container-logo">
+        <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
+      </div>
+ 
+      <ul class="nav-links">
+        <li><a href="index.php">Início</a></li>
+        <li><a href="alugar.php">Alugar</a></li>
+        <li><a href="comprar.php">Comprar</a></li>
+        <li><a href="sobre.php">Sobre Nós</a></li>
+        <li><a href="contato.php" class="active">Contato</a></li>
+      </ul>
+ 
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+ 
+    <!-- conteudo principal -->
+    <main class="conteudo-principal">
+      <div class="container">
+        <h1 class="titulo">CONTATE-NOS</h1>
        
-  </section>
-
-    <!-- footer -->
-   <footer class="footer">
+        <div class="container-subtitulo">
+          <p class="subtitulo">Tem alguma pergunta ou quer falar conosco? Entre em contato pelos nossos canais de atendimento abaixo:</p>
+        </div>
+ 
+        <!-- cards contato -->
+        <div class="secao-contato">
+          <div class="card-contato">
+            <h3 class="titulo-card">Entre em contato</h3>
+           
+            <div class="infos-contato">
+              <div class="item-contato">
+                <div class="icon-contato">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contato">
+                  <span class="label-contato">E-mail</span>
+                  <a href="mailto:spacefinder@space.com.br" class="link-contato">spacefinder@space.com.br</a>
+                </div>
+              </div>
+ 
+              <div class="item-contato">
+                <div class="icon-contato">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contato">
+                  <span class="label-contato">Telefone</span>
+                  <span class="texto-contato">(16) 3333-0005</span>
+                </div>
+              </div>
+            </div>
+ 
+                      <div class="container-whatssap">
+              <a href="https://api.whatsapp.com/send?phone=5516933005886&text=Ola%2C%20eu%20quero%20falar%20com%20o%20…"target="_blank" class="botao-whatsapp">
+                  <i class="fab fa-whatsapp"></i>
+                  <span>Falar no WhatsApp</span>
+              </a>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </main>
+ 
+   <!-- footer -->
+  <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-title">Space Finder</h3>
-          <p class="footer-text">Conectando você ao seu próximo lar</p>
+        <div class="secao-footer">
+          <h3 class="titulo-footer">Space Finder</h3>
+          <p class="texto-footer">Conectando você ao seu próximo lar</p>
           <div class="social-links">
             <a href="https://instagram.com.br" target="_blank" class="social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -95,147 +108,219 @@
             </a>
           </div>
         </div>
-        
-        <div class="footer-section">
-          <h4 class="footer-subtitle">Contato</h4>
-          <p class="contact-item">spacefinder@space.com.br</p>
-          <p class="contact-item">(16) 3333-0005</p>
-          <p class="contact-item">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
+       
+        <div class="secao-footer">
+          <h4 class="subtitulo-footer">Contato</h4>
+          <p class="contato-footer">spacefinder@space.com.br</p>
+          <p class="contato-footer">(16) 3333-0005</p>
+          <p class="contato-footer">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
         </div>
       </div>
-      
-      <div class="footer-bottom">
-        <p>© 2024 Space Finder. Todos os direitos reservados.</p>
+     
+      <div class="botao-footer">
+        <p>© 2025 Space Finder. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
-</body>
-</html>
-
+ 
 <style>
-  /* corpo site */
-  body {
+ 
+/* corpo do site */ 
+body {
   margin: 0;
   background-color: #ffffff;
   font-family: 'Inter', sans-serif;
   color: #333;
- }
-
-  /* topo page */
- .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
-  }
-
- .titulo {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+ 
+/* conteúdo principal */
+.conteudo-principal {
+  flex: 1;
+  padding-bottom: 40px;
+}
+ 
+.container {
   max-width: 900px;
   margin: 10px auto;
-  padding: 0 10px;
+  padding: 0 20px;
   text-align: center;
-  }
-
- .titulo h1 {
-  background-color: #1d3682; 
+}
+ 
+.titulo {
+  background: linear-gradient(135deg, #1d3682, #2e4ea3);
   color: white;              
-  padding: 40px 100px;      
-  border-radius: 12px;      
-  font-weight: 900;         
+  padding: 40px 60px;      
+  border-radius: 16px;      
+  font-weight: 900;        
   font-size: 50px;          
-  margin-top: 40px;      
- }
-
- .subtitulo {
+  margin-top: 40px;
+  box-shadow: 0 8px 32px rgba(29, 54, 130, 0.3);
+  letter-spacing: 2px;
+}
+ 
+.container-subtitulo {
+  margin: 50px 0;
+}
+ 
+.subtitulo {
   font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+ 
+/* card contato */
+.secao-contato {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+ 
+.card-contato {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(29, 54, 130, 0.1);
+  max-width: 500px;
+  width: 100%;
+  border: 1px solid rgba(29, 54, 130, 0.08);
+}
+ 
+.titulo-card {
+  color: #1d3682;
   margin-bottom: 30px;
-  padding: 0 10px;
-  }
-
-  /* contato space - NOVO CARD */
-  .contato {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: left;
-    margin: 20px auto;
-  }
-
-  .contato h3 {
-    color: #1f3e8a;
-    margin-bottom: 25px;
-    font-size: 28px;
-    font-weight: 600;
-    text-align: center;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 15px;
-  }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 12px 0;
-  }
-
-  .contact-item i {
-    color: #1f3e8a;
-    width: 25px;
-    font-size: 18px;
-    margin-right: 15px;
-    text-align: center;
-  }
-
-  .contato a {
-    color: #1d3682;
-    text-decoration: none;
-    font-size: 16px;
-    line-height: 1.4;
-  }
-
-  .contato a:hover {
-    text-decoration: underline;
-    color: #1f3e8a;
-  }
-
-  .telefone {
-    color: #1d3682;
-    font-size: 16px;
-    margin: 0;
-  }
-
-  /* botao whatsapp */
-  .whatsapp-button {
-    display: inline-flex;
-    align-items: center;
-    background-color: #25d366;
-    color: white !important;
-    text-decoration: none !important;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-weight: 500;
-    margin-top: 15px;
-    width: 100%;
-    justify-content: center;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-  }
-
-  .whatsapp-button:hover {
-    background-color: #128c7e;
-    color: white !important;
-    text-decoration: none !important;
-  }
-
-  .whatsapp-button i {
-    margin-right: 8px;
-    color: white !important;
-    width: auto;
-  }
-
-
-
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+ 
+.titulo-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #1d3682, #2e4ea3);
+  border-radius: 2px;
+}
+ 
+.infos-contato {
+  margin-bottom: 30px;
+}
+ 
+.item-contato {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #f8f9ff;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+ 
+.item-contato:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(29, 54, 130, 0.1);
+}
+ 
+.icon-contato {
+  background: linear-gradient(135deg, #1d3682, #2e4ea3);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+ 
+.icon-contato i {
+  font-size: 20px;
+}
+ 
+.contato {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+}
+ 
+.label-contato {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d3682;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+ 
+.link-contato {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+ 
+.link-contato:hover {
+  color: #1d3682;
+  text-decoration: none;
+}
+ 
+.texto-contato {
+  color: #333;
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.5;
+}
+ 
+/* botão WhatsApp */
+.container-whatssap {
+  margin-top: 30px;
+  text-align: center;
+}
+ 
+.botao-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white !important;
+  text-decoration: none !important;
+  padding: 15px 70px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+  min-width: 200px;
+}
+ 
+.botao-whatsapp:hover {
+  background: linear-gradient(135deg, #128c7e, #0d6b5c);
+  color: white !important;
+  text-decoration: none !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+ 
+.botao-whatsapp i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+ 
+ 
 </style>
+ 
+</body>
+</html>
+ 

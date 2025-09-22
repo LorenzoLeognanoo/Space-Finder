@@ -256,9 +256,9 @@ if ($busca) {
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-title">Space Finder</h3>
-          <p class="footer-text">Conectando você ao seu próximo lar</p>
+        <div class="secao-footer">
+          <h3 class="titulo-footer">Space Finder</h3>
+          <p class="texto-footer">Conectando você ao seu próximo lar</p>
           <div class="social-links">
             <a href="https://instagram.com.br" target="_blank" class="social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -278,15 +278,15 @@ if ($busca) {
           </div>
         </div>
         
-        <div class="footer-section">
-          <h4 class="footer-subtitle">Contato</h4>
-          <p class="contact-item">spacefinder@space.com.br</p>
-          <p class="contact-item">(16) 3333-0005</p>
-          <p class="contact-item">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
+        <div class="secao-footer">
+          <h4 class="subtitulo-footer">Contato</h4>
+          <p class="contato-footer">spacefinder@space.com.br</p>
+          <p class="contato-footer">(16) 3333-0005</p>
+          <p class="contato-footer">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
         </div>
       </div>
       
-      <div class="footer-bottom">
+      <div class="botao-footer">
         <p>© 2024 Space Finder. Todos os direitos reservados.</p>
       </div>
     </div>
