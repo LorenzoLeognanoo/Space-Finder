@@ -191,3 +191,80 @@
       text-align: center;
       color: #fafbff9e;
     }
+
+
+/* scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 13px;
+  background-color: #f8fafc;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #1e3a8a);
+  border-radius: 10px;
+  border: 2px solid #f8fafc;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+  transform: scale(0.95);
+}
+
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+  display: block;
+  height: px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px 6px 0 0;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18,15 12,9 6,15'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+  transition: all 0.2s ease;
+}
+
+
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+  height: 12px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 0 0 6px 6px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px;
+  transition: all 0.2s ease;
+}
+
+
+::-webkit-scrollbar-button:vertical:start:decrement:hover,
+::-webkit-scrollbar-button:vertical:end:increment:hover {
+  background-color: #e2e8f0;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231e40af' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='18,15 12,9 6,15'%3E%3C/polyline%3E%3C/svg%3E");
+  transform: scale(1.05);
+}
+
+::-webkit-scrollbar-button:vertical:end:increment:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231e40af' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6,9 12,15 18,9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement:active,
+::-webkit-scrollbar-button:vertical:end:increment:active {
+  background-color: #cbd5e1;
+  transform: scale(0.95);
+}
