@@ -2,9 +2,9 @@
 // conexão com o banco de dados
 $conn = new mysqli("localhost", "root", "", "spacefinder");
 if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
+  die("Erro de conexão: " . $conn->connect_error);
 }
-  
+
 // recebe os parâmetros de busca e filtros
 $busca = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 $bairro = isset($_GET['bairro']) ? $conn->real_escape_string($_GET['bairro']) : '';
@@ -17,31 +17,31 @@ $sql = "SELECT * FROM imoveis_alugar WHERE 1=1";
 
 // aplica busca geral 
 if ($busca) {
-    $sql .= " AND (bairro LIKE '%$busca%' 
+  $sql .= " AND (bairro LIKE '%$busca%' 
              OR rua LIKE '%$busca%' 
              OR tipo LIKE '%$busca%')";
 }
 
 // aplica filtros específicos
 if ($bairro) {
-    $sql .= " AND bairro LIKE '%$bairro%'";
+  $sql .= " AND bairro LIKE '%$bairro%'";
 }
 
 if ($tipo) {
-    $sql .= " AND tipo = '$tipo'";
+  $sql .= " AND tipo = '$tipo'";
 }
 
 if ($comodos) {
-    $sql .= " AND num_comodos = $comodos";
+  $sql .= " AND num_comodos = $comodos";
 }
 
 if ($faixa_preco) {
-    $faixa_parts = explode('-', $faixa_preco);
-    if (count($faixa_parts) == 2) {
-        $min = intval($faixa_parts[0]);
-        $max = intval($faixa_parts[1]);
-        $sql .= " AND valor BETWEEN $min AND $max";
-    }
+  $faixa_parts = explode('-', $faixa_preco);
+  if (count($faixa_parts) == 2) {
+    $min = intval($faixa_parts[0]);
+    $max = intval($faixa_parts[1]);
+    $sql .= " AND valor BETWEEN $min AND $max";
+  }
 }
 
 // limita para 15 resultados
@@ -123,12 +123,12 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
               <select name="bairro" id="bairro">
                 <option value="">Todos os bairros</option>
                 <?php if ($bairros_result && $bairros_result->num_rows > 0): ?>
-                  <?php while($row = $bairros_result->fetch_assoc()): ?>
-                    <option value="<?php echo htmlspecialchars($row['bairro']); ?>" 
-                            <?php echo ($bairro == $row['bairro']) ? 'selected' : ''; ?>>
-                      <?php echo htmlspecialchars($row['bairro']); ?>
-                    </option>
-                  <?php endwhile; ?>
+                    <?php while ($row = $bairros_result->fetch_assoc()): ?>
+                        <option value="<?php echo htmlspecialchars($row['bairro']); ?>" 
+                                <?php echo ($bairro == $row['bairro']) ? 'selected' : ''; ?>>
+                          <?php echo htmlspecialchars($row['bairro']); ?>
+                        </option>
+                    <?php endwhile; ?>
                 <?php endif; ?>
               </select>
             </div>
@@ -142,12 +142,12 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
               <select name="tipo" id="tipo">
                 <option value="">Todos os tipos</option>
                 <?php if ($tipos_result && $tipos_result->num_rows > 0): ?>
-                  <?php while($row = $tipos_result->fetch_assoc()): ?>
-                    <option value="<?php echo htmlspecialchars($row['tipo']); ?>"
-                            <?php echo ($tipo == $row['tipo']) ? 'selected' : ''; ?>>
-                      <?php echo htmlspecialchars($row['tipo']); ?>
-                    </option>
-                  <?php endwhile; ?>
+                    <?php while ($row = $tipos_result->fetch_assoc()): ?>
+                        <option value="<?php echo htmlspecialchars($row['tipo']); ?>"
+                                <?php echo ($tipo == $row['tipo']) ? 'selected' : ''; ?>>
+                          <?php echo htmlspecialchars($row['tipo']); ?>
+                        </option>
+                    <?php endwhile; ?>
                 <?php endif; ?>
               </select>
             </div>
@@ -161,12 +161,12 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
               <select name="num_comodos" id="num_comodos">
                 <option value="">Qualquer</option>
                 <?php if ($comodos_result && $comodos_result->num_rows > 0): ?>
-                  <?php while($row = $comodos_result->fetch_assoc()): ?>
-                    <option value="<?php echo $row['num_comodos']; ?>"
-                            <?php echo ($comodos == $row['num_comodos']) ? 'selected' : ''; ?>>
-                      <?php echo $row['num_comodos']; ?> cômodo<?php echo ($row['num_comodos'] > 1) ? 's' : ''; ?>
-                    </option>
-                  <?php endwhile; ?>
+                    <?php while ($row = $comodos_result->fetch_assoc()): ?>
+                        <option value="<?php echo $row['num_comodos']; ?>"
+                                <?php echo ($comodos == $row['num_comodos']) ? 'selected' : ''; ?>>
+                          <?php echo $row['num_comodos']; ?> cômodo<?php echo ($row['num_comodos'] > 1) ? 's' : ''; ?>
+                        </option>
+                    <?php endwhile; ?>
                 <?php endif; ?>
               </select>
             </div>
@@ -209,7 +209,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
   <section class="secao-resultados">
     <div class="container">
       <h2>
-        <?php 
+        <?php
         if ($result) {
           $total_results = $result->num_rows;
           echo $busca ? "Resultados para \"$busca\"" : "Imóveis disponíveis";
@@ -220,70 +220,70 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
       
         <!-- cards alugar -->
       <?php if ($result && $result->num_rows > 0): ?>
-        <div class="grade-resultados">
-          <?php while($row = $result->fetch_assoc()): ?>
-            <div class="cards-imovel" onclick="verDetalhes(<?php echo $row['id_casa']; ?>)">
-              <div class="container-imagem-cards">
-                <img src="<?php echo !empty($row['foto']) ? htmlspecialchars($row['foto']) : 'imgs/placeholder.jpg'; ?>" 
-                     alt="<?php echo htmlspecialchars($row['tipo']); ?>" class="imagem-cards">
-                <div class="etiqueta-cards"><?php echo htmlspecialchars($row['tipo']); ?></div>
-              </div>
+          <div class="grade-resultados">
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="cards-imovel" onclick="verDetalhes(<?php echo $row['id_casa']; ?>)">
+                  <div class="container-imagem-cards">
+                    <img src="<?php echo !empty($row['foto']) ? htmlspecialchars($row['foto']) : 'imgs/placeholder.jpg'; ?>" 
+                         alt="<?php echo htmlspecialchars($row['tipo']); ?>" class="imagem-cards">
+                    <div class="etiqueta-cards"><?php echo htmlspecialchars($row['tipo']); ?></div>
+                  </div>
               
-              <div class="conteudo-cards">
-                <div class="preco-cards">
-                  R$ <?php echo number_format($row['valor'], 2, ',', '.'); ?><span class="periodo">/mês</span>
-                </div>
+                  <div class="conteudo-cards">
+                    <div class="preco-cards">
+                      R$ <?php echo number_format($row['valor'], 2, ',', '.'); ?><span class="periodo">/mês</span>
+                    </div>
                 
-                <h3 class="titulo-cards">
-                  <?php echo htmlspecialchars($row['titulo_casa']); ?>
-                </h3>
+                    <h3 class="titulo-cards">
+                      <?php echo htmlspecialchars($row['titulo_casa']); ?>
+                    </h3>
 
-                <div class="localizacao-cards">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <?php echo htmlspecialchars($row['bairro']); ?><?php if(!empty($row['rua'])): ?> - <?php echo htmlspecialchars($row['rua']); ?><?php endif; ?>
-                </div>
+                    <div class="localizacao-cards">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <?php echo htmlspecialchars($row['bairro']); ?>    <?php if (!empty($row['rua'])): ?> - <?php echo htmlspecialchars($row['rua']); ?><?php endif; ?>
+                    </div>
                 
-                <div class="caracteristicas-cards">
-                <div class="caracteristica">
-                <i class="fas fa-th-large"></i> 
-                <span><?php echo intval($row['num_comodos']); ?> cômodos</span>
-                </div>
+                    <div class="caracteristicas-cards">
+                    <div class="caracteristica">
+                    <i class="fas fa-th-large"></i> 
+                    <span><?php echo intval($row['num_comodos']); ?> cômodos</span>
+                    </div>
 
-                <div class="caracteristica">
-                <i class="fas fa-bed"></i> 
-                <span><?php echo intval($row['quarto']); ?> Quarto<?php echo intval($row['quarto']) > 1 ? 's' : ''; ?></span>
-                </div>
+                    <div class="caracteristica">
+                    <i class="fas fa-bed"></i> 
+                    <span><?php echo intval($row['quarto']); ?> Quarto<?php echo intval($row['quarto']) > 1 ? 's' : ''; ?></span>
+                    </div>
 
-                <div class="caracteristica">
-                <i class="fas fa-bath"></i> 
-                <span><?php echo intval($row['banheiro']); ?> Banheiro<?php echo intval($row['banheiro']) > 1 ? 's' : ''; ?></span>
-               </div>
+                    <div class="caracteristica">
+                    <i class="fas fa-bath"></i> 
+                    <span><?php echo intval($row['banheiro']); ?> Banheiro<?php echo intval($row['banheiro']) > 1 ? 's' : ''; ?></span>
+                   </div>
 
-                <div class="caracteristica">
-                <i class="fas fa-ruler-combined"></i>
-                <span><?php echo number_format($row['area'], 0, ',', '.'); ?> m²</span>
-                </div>
-                </div>
+                    <div class="caracteristica">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span><?php echo number_format($row['area'], 0, ',', '.'); ?> m²</span>
+                    </div>
+                    </div>
 
 
-                <div class="rodape-cards">
-                  <button class="botao-detalhes">
-                    <span>Ver Detalhes</span>
-                    <i class="fas fa-arrow-right"></i>
-                  </button>
+                    <div class="rodape-cards">
+                      <button class="botao-detalhes">
+                        <span>Ver Detalhes</span>
+                        <i class="fas fa-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          <?php endwhile; ?>
-        </div>
+            <?php endwhile; ?>
+          </div>
       <?php else: ?>
 
-        <div class="sem-resultados">
-          <p>Nenhum imóvel encontrado com os filtros selecionados.</p>
+          <div class="sem-resultados">
+            <p>Nenhum imóvel encontrado com os filtros selecionados.</p>
 
-         <a href="alugar.php" class="botao-ver-imoveis">Ver todos os imóveis</a>
+           <a href="alugar.php" class="botao-ver-imoveis">Ver todos os imóveis</a>
 
-        </div>
+          </div>
       <?php endif; ?>
     </div>
   </section>
