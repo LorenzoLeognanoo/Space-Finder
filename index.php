@@ -91,7 +91,7 @@ if ($busca) {
       <li><a href="index.php" class="nav-link active">Início</a></li>
       <li><a href="alugar.php" class="nav-link">Alugar</a></li>
       <li><a href="comprar.php" class="nav-link">Comprar</a></li>
-      <li><a href="sobre.php" class="nav-link">Sobre</a></li>
+      <li><a href="sobre.php" class="nav-link">Sobre Nós</a></li>
       <li><a href="contato.php" class="nav-link">Contato</a></li>
     </ul>
 

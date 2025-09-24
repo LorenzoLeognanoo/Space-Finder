@@ -1,5 +1,5 @@
 <?php
-// conexao com o banco de dados
+// conexão com o banco de dados
 $conn = new mysqli("localhost", "root", "", "spacefinder");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 $id_imovel = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $tipo_transacao = isset($_GET['tipo']) ? $_GET['tipo'] : '';
 
-// valida os paremetros 
+// valida os parâmetros 
 if ($id_imovel <= 0 || !in_array($tipo_transacao, ['alugar', 'comprar'])) {
     header("Location: index.php.");
     exit;

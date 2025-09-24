@@ -2,31 +2,30 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Space Finder - Contate Nos</title>
-  <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Space Finder - Viva sua Conquista!</title>
+  <link rel="shortcut icon" href="imgs/logo-icon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&a… rel="
-    stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <!-- navbar -->
   <nav class="navbar">
-    <div class="container-logo">
+    <div class="logo-container">
       <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
     </div>
 
     <ul class="nav-links">
-      <li><a href="index.php">Início</a></li>
-      <li><a href="alugar.php">Alugar</a></li>
-      <li><a href="comprar.php">Comprar</a></li>
-      <li><a href="sobre.php">Sobre Nós</a></li>
-      <li><a href="contato.php" class="active">Contato</a></li>
+      <li><a href="index.php" class="nav-link">Início</a></li>
+      <li><a href="alugar.php" class="nav-link">Alugar</a></li>
+      <li><a href="comprar.php" class="nav-link">Comprar</a></li>
+      <li><a href="sobre.php" class="nav-link">Sobre Nós</a></li>
+      <li><a href="contato.php" class="nav-link active">Contato</a></li>
     </ul>
 
     <div class="menu-toggle" id="menu-toggle">
