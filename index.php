@@ -7,21 +7,24 @@ if ($conn->connect_error) {
 
 $busca = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 
+
 if ($busca) {
-    // busca combinada em ambas as tabelas alugar e comprar
-    $sql_alugar = "SELECT *, 'alugar' as tipo_transacao FROM imoveis_alugar
-                   WHERE bairro LIKE '%$busca%' 
-                   OR rua LIKE '%$busca%' 
-                   OR tipo LIKE '%$busca%'
-                   OR titulo_casa LIKE '%$busca%'
-                   LIMIT 5";
-    
-    $sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
-                    WHERE bairro LIKE '%$busca%' 
-                    OR rua LIKE '%$busca%' 
-                    OR tipo LIKE '%$busca%'
-                    OR titulo_casa LIKE '%$busca%'
-                    LIMIT 5";
+    // busca em ambas as tabelas alugar e comprar
+$sql_alugar = "SELECT *, 'alugar' as tipo_transacao FROM imoveis_alugar
+               WHERE bairro LIKE '%$busca%' 
+               OR rua LIKE '%$busca%' 
+               OR tipo LIKE '%$busca%'
+               OR titulo_casa LIKE '%$busca%'
+               OR codigo LIKE '%$busca%'
+               LIMIT 5";
+
+$sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
+                WHERE bairro LIKE '%$busca%' 
+                OR rua LIKE '%$busca%' 
+                OR tipo LIKE '%$busca%'
+                OR titulo_casa LIKE '%$busca%'
+                OR codigo LIKE '%$busca%'
+                LIMIT 5";
     
     // executa as duas consultas
     $result_alugar = $conn->query($sql_alugar);
@@ -89,7 +92,7 @@ if ($busca) {
       <li><a href="index.php" class="nav-link active">Início</a></li>
       <li><a href="alugar.php" class="nav-link">Alugar</a></li>
       <li><a href="comprar.php" class="nav-link">Comprar</a></li>
-      <li><a href="sobre.php" class="nav-link">Sobre</a></li>
+      <li><a href="sobre.php" class="nav-link">Sobre Nós</a></li>
       <li><a href="contato.php" class="nav-link">Contato</a></li>
     </ul>
 
@@ -106,11 +109,12 @@ if ($busca) {
       <h1 class="topo-titulo">Encontre seu espaço ideal</h1>
       <p class="topo-subtitulo">Alugue ou compre imóveis de forma fácil, rápida e segura com a  <strong class="space-negrito"> SPACE FINDER</strong>.</p>
 
+      <!-- caixa de pesquisa -->
       <form class="search-container" method="GET" action="index.php">
         <div class="search-box">
           <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-</svg>
+          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
           </svg>
           <input type="text" name="q" placeholder="Digite uma localização ou tipo de imóvel..." class="search-input" value="<?php echo htmlspecialchars($busca); ?>" />
           <button type="submit" class="search-btn">Buscar</button>
@@ -256,9 +260,9 @@ if ($busca) {
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-title">Space Finder</h3>
-          <p class="footer-text">Conectando você ao seu próximo lar</p>
+        <div class="seção-footer">
+          <h3 class="titulo-footer">Space Finder</h3>
+          <p class="texto-footer">Conectando você ao seu próximo lar</p>
           <div class="social-links">
             <a href="https://instagram.com.br" target="_blank" class="social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -278,16 +282,16 @@ if ($busca) {
           </div>
         </div>
         
-        <div class="footer-section">
-          <h4 class="footer-subtitle">Contato</h4>
-          <p class="contact-item">spacefinder@space.com.br</p>
-          <p class="contact-item">(16) 3333-0005</p>
-          <p class="contact-item">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
+        <div class="seção-footer">
+          <h4 class="subtitulo-footer">Contato</h4>
+          <p class="info-contato">spacefinder@space.com.br</p>
+          <p class="info-contato">(16) 3333-0005</p>
+          <p class="info-contato">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
         </div>
       </div>
       
-      <div class="footer-bottom">
-        <p>© 2024 Space Finder. Todos os direitos reservados.</p>
+      <div class="botao-footer">
+        <p>© 2025 Space Finder. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>

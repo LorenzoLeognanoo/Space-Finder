@@ -12,6 +12,7 @@ $tipo = isset($_GET['tipo']) ? $conn->real_escape_string($_GET['tipo']) : '';
 $comodos = isset($_GET['num_comodos']) ? intval($_GET['num_comodos']) : '';
 $faixa_preco = isset($_GET['faixa_preco']) ? $_GET['faixa_preco'] : '';
 
+
 // monta a busca SQL 
 $sql = "SELECT * FROM imoveis_alugar WHERE 1=1";
 
@@ -19,7 +20,8 @@ $sql = "SELECT * FROM imoveis_alugar WHERE 1=1";
 if ($busca) {
     $sql .= " AND (bairro LIKE '%$busca%' 
              OR rua LIKE '%$busca%' 
-             OR tipo LIKE '%$busca%')";
+             OR tipo LIKE '%$busca%'
+             OR codigo LIKE '%$busca%')";
 }
 
 // aplica filtros específicos
@@ -292,9 +294,9 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-title">Space Finder</h3>
-          <p class="footer-text">Conectando você ao seu próximo lar</p>
+        <div class="seção-footer">
+          <h3 class="titulo-footer">Space Finder</h3>
+          <p class="texto-footer">Conectando você ao seu próximo lar</p>
           <div class="social-links">
             <a href="https://instagram.com.br" target="_blank" class="social-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -314,16 +316,16 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
           </div>
         </div>
         
-        <div class="footer-section">
-          <h4 class="footer-subtitle">Contato</h4>
-          <p class="contact-item">spacefinder@space.com.br</p>
-          <p class="contact-item">(16) 3333-0005</p>
-          <p class="contact-item">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
+        <div class="seção-footer">
+          <h4 class="subtitulo-footer">Contato</h4>
+          <p class="info-contato">spacefinder@space.com.br</p>
+          <p class="info-contato">(16) 3333-0005</p>
+          <p class="info-contato">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
         </div>
       </div>
       
-      <div class="footer-bottom">
-        <p>© 2024 Space Finder. Todos os direitos reservados.</p>
+      <div class="botao-footer">
+        <p>© 2025 Space Finder. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>

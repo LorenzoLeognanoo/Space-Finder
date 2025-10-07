@@ -119,7 +119,7 @@
   }
 }
 
-    /* footer */
+  /* footer */
     .footer {
       background:#001f72ff;
       color:rgb(240, 240, 240);
@@ -138,21 +138,21 @@
       margin-bottom: 2rem;
     }
 
-    .footer-title {
+    .titulo-footer {
       font-size: 1.5rem;
       font-weight: 700;
       color: white;
       margin-bottom: 1rem;
     }
 
-    .footer-subtitle {
+    .subtitulo-footer {
       font-size: 1.125rem;
       font-weight: 600;
       color: white;
       margin-bottom: 1rem;
     }
 
-    .footer-text {
+    .texto-footer {
       margin-bottom: 1.5rem;
     }
 
@@ -181,11 +181,11 @@
       transform: translateY(-2px);
     }
 
-    .contact-item {
+    .info-contato {
       margin-bottom: 0.5rem;
     }
 
-    .footer-bottom {
+    .botao-footer {
       padding-top: 2rem;
       border-top: 1px solid #fafbff49;
       text-align: center;
