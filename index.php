@@ -9,36 +9,6 @@ $busca = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
 
 
 if ($busca) {
-<<<<<<< HEAD
-    // busca em ambas as tabelas alugar e comprar
-$sql_alugar = "SELECT *, 'alugar' as tipo_transacao FROM imoveis_alugar
-               WHERE bairro LIKE '%$busca%' 
-               OR rua LIKE '%$busca%' 
-               OR tipo LIKE '%$busca%'
-               OR titulo_casa LIKE '%$busca%'
-               OR codigo LIKE '%$busca%'
-               LIMIT 5";
-
-$sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
-                WHERE bairro LIKE '%$busca%' 
-                OR rua LIKE '%$busca%' 
-                OR tipo LIKE '%$busca%'
-                OR titulo_casa LIKE '%$busca%'
-                OR codigo LIKE '%$busca%'
-                LIMIT 5";
-    
-    // executa as duas consultas
-    $result_alugar = $conn->query($sql_alugar);
-    $result_comprar = $conn->query($sql_comprar);
-    
-    // combina os resultados
-    $imoveis_encontrados = [];
-    
-    if ($result_alugar && $result_alugar->num_rows > 0) {
-        while($row = $result_alugar->fetch_assoc()) {
-            $imoveis_encontrados[] = $row;
-        }
-=======
   // busca combinada em ambas as tabelas alugar e comprar
   $sql_alugar = "SELECT *, 'alugar' as tipo_transacao FROM imoveis_alugar
                    WHERE bairro LIKE '%$busca%' 
@@ -64,7 +34,6 @@ $sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
   if ($result_alugar && $result_alugar->num_rows > 0) {
     while ($row = $result_alugar->fetch_assoc()) {
       $imoveis_encontrados[] = $row;
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
     }
   }
 
@@ -144,16 +113,10 @@ $sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
       <!-- caixa de pesquisa -->
       <form class="search-container" method="GET" action="index.php">
         <div class="search-box">
-<<<<<<< HEAD
-          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-          </svg>
-=======
           <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
           </svg>
           </svg>
           <input type="text" name="q" placeholder="Digite uma localização ou tipo de imóvel..." class="search-input"
@@ -309,11 +272,7 @@ $sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
-<<<<<<< HEAD
-        <div class="seção-footer">
-=======
         <div class="secao-footer">
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
           <h3 class="titulo-footer">Space Finder</h3>
           <p class="texto-footer">Conectando você ao seu próximo lar</p>
           <div class="social-links">
@@ -337,19 +296,6 @@ $sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
             </a>
           </div>
         </div>
-<<<<<<< HEAD
-        
-        <div class="seção-footer">
-          <h4 class="subtitulo-footer">Contato</h4>
-          <p class="info-contato">spacefinder@space.com.br</p>
-          <p class="info-contato">(16) 3333-0005</p>
-          <p class="info-contato">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
-        </div>
-      </div>
-      
-      <div class="botao-footer">
-        <p>© 2025 Space Finder. Todos os direitos reservados.</p>
-=======
 
         <div class="secao-footer">
           <h4 class="subtitulo-footer">Contato</h4>
@@ -361,7 +307,6 @@ $sql_comprar = "SELECT *, 'comprar' as tipo_transacao FROM imoveis_comprar
 
       <div class="botao-footer">
         <p>© 2024 Space Finder. Todos os direitos reservados.</p>
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
       </div>
     </div>
   </footer>

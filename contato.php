@@ -14,7 +14,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <!-- navbar -->
     <nav class="navbar">
       <div class="container-logo">
@@ -89,84 +88,6 @@
     <div class="footer-container">
       <div class="footer-content">
         <div class="seção-footer">
-=======
-  <!-- navbar -->
-  <nav class="navbar">
-    <div class="logo-container">
-      <a href="index.php"><img src="imgs/logosf.png" alt="Logo" class="logo" /></a>
-    </div>
-
-    <ul class="nav-links">
-      <li><a href="index.php" class="nav-link">Início</a></li>
-      <li><a href="alugar.php" class="nav-link">Alugar</a></li>
-      <li><a href="comprar.php" class="nav-link">Comprar</a></li>
-      <li><a href="sobre.php" class="nav-link">Sobre Nós</a></li>
-      <li><a href="contato.php" class="nav-link active">Contato</a></li>
-    </ul>
-
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-
-  <!-- conteudo principal -->
-  <main class="conteudo-principal">
-    <div class="container">
-      <h1 class="titulo">CONTATE-NOS</h1>
-
-      <div class="container-subtitulo">
-        <p class="subtitulo">Tem alguma pergunta ou quer falar conosco? Entre em contato pelos nossos canais de
-          atendimento abaixo:</p>
-      </div>
-
-      <!-- cards contato -->
-      <div class="secao-contato">
-        <div class="card-contato">
-          <h3 class="titulo-card">Entre em contato</h3>
-
-          <div class="infos-contato">
-            <div class="item-contato">
-              <div class="icon-contato">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contato">
-                <span class="label-contato">E-mail</span>
-                <a href="mailto:spacefinder@space.com.br" class="link-contato">spacefinder@space.com.br</a>
-              </div>
-            </div>
-
-            <div class="item-contato">
-              <div class="icon-contato">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div class="contato">
-                <span class="label-contato">Telefone</span>
-                <span class="texto-contato">(16) 3333-0005</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="container-whatssap">
-            <a href="https://api.whatsapp.com/send?phone=5516933005886&text=Ola%2C%20eu%20quero%20falar%20com%20o%20…"
-              target="_blank" class="botao-whatsapp">
-              <i class="fab fa-whatsapp"></i>
-              <span>Falar no WhatsApp</span>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-content">
-        <div class="secao-footer">
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
           <h3 class="titulo-footer">Space Finder</h3>
           <p class="texto-footer">Conectando você ao seu próximo lar</p>
           <div class="social-links">

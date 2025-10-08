@@ -294,11 +294,7 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-content">
-<<<<<<< HEAD
         <div class="seção-footer">
-=======
-        <div class="secao-footer">
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
           <h3 class="titulo-footer">Space Finder</h3>
           <p class="texto-footer">Conectando você ao seu próximo lar</p>
           <div class="social-links">
@@ -320,28 +316,16 @@ $comodos_result = $conn->query("SELECT DISTINCT num_comodos FROM imoveis_alugar 
           </div>
         </div>
         
-<<<<<<< HEAD
         <div class="seção-footer">
           <h4 class="subtitulo-footer">Contato</h4>
           <p class="info-contato">spacefinder@space.com.br</p>
           <p class="info-contato">(16) 3333-0005</p>
           <p class="info-contato">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
-=======
-        <div class="secao-footer">
-          <h4 class="subtitulo-footer">Contato</h4>
-          <p class="contato-footer">spacefinder@space.com.br</p>
-          <p class="contato-footer">(16) 3333-0005</p>
-          <p class="contato-footer">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
         </div>
       </div>
       
       <div class="botao-footer">
-<<<<<<< HEAD
         <p>© 2025 Space Finder. Todos os direitos reservados.</p>
-=======
-        <p>© 2024 Space Finder. Todos os direitos reservados.</p>
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
       </div>
     </div>
   </footer>
