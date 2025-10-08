@@ -111,7 +111,6 @@
             </a>
           </div>
         </div>
-<<<<<<< HEAD
         
         <div class="seção-footer">
           <h4 class="subtitulo-footer">Contato</h4>
@@ -121,23 +120,11 @@
         </div>
       </div>
       
-=======
-
-        <div class="secao-footer">
-          <h4 class="subtitulo-footer">Contato</h4>
-          <p class="contato-footer">spacefinder@space.com.br</p>
-          <p class="contato-footer">(16) 3333-0005</p>
-          <p class="contato-footer">Av. Bandeirantes, 503<br>Centro, Araraquara - SP<br>14801-120</p>
-        </div>
-      </div>
-
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
       <div class="botao-footer">
         <p>© 2025 Space Finder. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
-<<<<<<< HEAD
 
 <style>
 
@@ -337,204 +324,4 @@ body {
 </style>
 
 </body>
-=======
-
-  <style>
-    /* corpo do site */
-    body {
-      margin: 0;
-      background-color: #ffffff;
-      font-family: 'Inter', sans-serif;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* conteúdo principal */
-    .conteudo-principal {
-      flex: 1;
-      padding-bottom: 40px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 10px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    .titulo {
-      background: linear-gradient(135deg, #1d3682, #2e4ea3);
-      color: white;
-      padding: 40px 60px;
-      border-radius: 16px;
-      font-weight: 900;
-      font-size: 50px;
-      margin-top: 40px;
-      box-shadow: 0 8px 32px rgba(29, 54, 130, 0.3);
-      letter-spacing: 2px;
-    }
-
-    .container-subtitulo {
-      margin: 50px 0;
-    }
-
-    .subtitulo {
-      font-size: 20px;
-      line-height: 1.6;
-      color: #333;
-      margin: 0;
-    }
-
-    /* card contato */
-    .secao-contato {
-      display: flex;
-      justify-content: center;
-      margin: 40px 0;
-    }
-
-    .card-contato {
-      background: #fff;
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(29, 54, 130, 0.1);
-      max-width: 500px;
-      width: 100%;
-      border: 1px solid rgba(29, 54, 130, 0.08);
-    }
-
-    .titulo-card {
-      color: #1d3682;
-      margin-bottom: 30px;
-      font-size: 28px;
-      font-weight: 700;
-      text-align: center;
-      position: relative;
-      padding-bottom: 15px;
-    }
-
-    .titulo-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(135deg, #1d3682, #2e4ea3);
-      border-radius: 2px;
-    }
-
-    .infos-contato {
-      margin-bottom: 30px;
-    }
-
-    .item-contato {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 25px;
-      padding: 20px;
-      background: #f8f9ff;
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .item-contato:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(29, 54, 130, 0.1);
-    }
-
-    .icon-contato {
-      background: linear-gradient(135deg, #1d3682, #2e4ea3);
-      color: white;
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 20px;
-      flex-shrink: 0;
-    }
-
-    .icon-contato i {
-      font-size: 20px;
-    }
-
-    .contato {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      flex: 1;
-    }
-
-    .label-contato {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1d3682;
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .link-contato {
-      color: #333;
-      text-decoration: none;
-      font-size: 16px;
-      line-height: 1.5;
-      transition: color 0.3s ease;
-    }
-
-    .link-contato:hover {
-      color: #1d3682;
-      text-decoration: none;
-    }
-
-    .texto-contato {
-      color: #333;
-      font-size: 16px;
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* botão WhatsApp */
-    .container-whatssap {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .botao-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #25d366, #128c7e);
-      color: white !important;
-      text-decoration: none !important;
-      padding: 15px 70px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-      min-width: 200px;
-    }
-
-    .botao-whatsapp:hover {
-      background: linear-gradient(135deg, #128c7e, #0d6b5c);
-      color: white !important;
-      text-decoration: none !important;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-    }
-
-    .botao-whatsapp i {
-      margin-right: 10px;
-      font-size: 20px;
-    }
-  </style>
-
-</body>
-
->>>>>>> 748ade84aadc36a84a513595fbf8f4146e25e203
 </html>
