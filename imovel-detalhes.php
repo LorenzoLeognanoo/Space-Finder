@@ -1,4 +1,4 @@
-<?php
+a<?php
 // conexão com o banco de dados
 $conn = new mysqli("localhost", "root", "", "spacefinder");
 if ($conn->connect_error) {
